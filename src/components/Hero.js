@@ -43,13 +43,12 @@ const Hero = () => {
                 </MDBCarouselItem>
 
                 <MDBCarouselItem>
-                    <Link to="/b/furniture">
+                    <Link to="/b/accessories">
                         <MDBCarouselElement src='https://images.unsplash.com/photo-1580064141068-f42c18d153f5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80' alt='...'
                             style={{ "max-height": "40rem", "object-fit": "cover" }}
                         />
                         <MDBCarouselCaption>
-                            <h5>Third slide label</h5>
-                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                            <h1 className=" text-dark ">We've Got A Feeling You'll Love This</h1>
                         </MDBCarouselCaption>
                     </Link>
                 </MDBCarouselItem>
