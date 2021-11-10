@@ -106,11 +106,6 @@ import Typography from '@mui/material/Typography';
 
 
 function Header(props) {
-    // const { sections, title } = props;
-    // const sections = {
-
-
-    // }
 
     return (
         <React.Fragment>

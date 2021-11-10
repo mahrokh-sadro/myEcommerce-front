@@ -1,13 +1,75 @@
 import React from 'react'
-import InfiniteCarousel from 'react-leaf-carousel';
-import FeaturedCard from './FeaturedCard'
 
 import { Container, Card, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-const Featureds = props => {
+
+
+const products = [{
+    "_id": "6184b45780d5f3aef8055a43",
+    "name": "lamp",
+    "price": 36,
+    "description": "dadadadadadadda",
+    "category": "furniture",
+    "quantity": 88,
+    "isBestSeller": true,
+    "isFeatured": true,
+    "photoURL": [
+        "https://images.unsplash.com/photo-1496417263034-38ec4f0b665a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80"
+    ],
+}, {
+    "_id": "6184b3f280d5f3aef8055a38",
+    "name": "vase",
+    "price": 36,
+    "description": "dadadadadadadda",
+    "category": "accessories",
+    "quantity": 88,
+    "isBestSeller": true,
+    "isFeatured": true,
+    "photoURL": [
+        "https://images.unsplash.com/photo-1463320898484-cdee8141c787?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+    ],
+
+}, {
+    "_id": "6178c8ae43ce60fc37786e6e",
+    "name": "bag",
+    "price": 40,
+    "description": "fhyytnlkmkjbhgv ggggoll ttttt",
+    "category": "accessories",
+    "quantity": 83,
+    "isBestSeller": true,
+    "photoURL": [
+        "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80"
+    ],
+}, {
+    "_id": "617b0a7d868966853e5ef90a",
+    "name": "candle",
+    "price": 36,
+    "description": "dadadadadadadda",
+    "category": "accessories",
+    "quantity": 88,
+    "isBestSeller": true,
+    "photoURL": [
+        "https://images.unsplash.com/photo-1570823635306-250abb06d4b3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80"
+    ],
+}, {
+    "_id": "6178c8ab43ce60fc37786e6d",
+    "name": "laptop",
+    "price": 50,
+    "description": "fhyytnlkmkjbhgv ggggoll ttttt",
+    "category": "electronics",
+    "quantity": 83,
+    "isBestSeller": true,
+    "photoURL": [
+        "https://images.unsplash.com/photo-1587614382346-4ec70e388b28?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80"
+    ],
+}]
+
+
+
+const Deals = props => {
     const settings = {
         dots: true,
         infinite: false,
@@ -19,7 +81,7 @@ const Featureds = props => {
         speed: 2000,
         autoplaySpeed: 2000,
         cssEase: "linear",
-        arrow: true,
+
         responsive: [
             {
                 breakpoint: 1024,
@@ -49,16 +111,15 @@ const Featureds = props => {
     };
     return (
         <>
-
             <Container>
                 <div className="clearfix mt-5 mb-2">
-                    <h4 className="float-left">Featured Products</h4>
-                    <Link className="float-right text-uppercase" to="/">
+                    <h4 className="float-left">Today's Deals</h4>
+                    {/* <Link className="float-right text-uppercase" to="/">
                         see all
-        </Link>
+        </Link> */}
                 </div>
                 <Slider {...settings}>
-                    {props.products.map(function (product) {
+                    {products.map(function (product) {
                         return (
                             <React.Fragment>
                                 <Link to={`/product/details/${product._id}`}>
@@ -89,5 +150,4 @@ const Featureds = props => {
     )
 }
 
-export default Featureds
-
+export default Deals

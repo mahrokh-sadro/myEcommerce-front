@@ -6,7 +6,7 @@ import ProductCategory from '../components/ProductCategory'
 import BestSellers from '../components/BestSellers'
 import Footer from '../components/Footer'
 import Featureds from '../components/Featureds'
-
+import Deals from '../components/Deals'
 //can i have 2 use effect???
 
 const HomePage = props => {
@@ -76,7 +76,7 @@ const HomePage = props => {
             <ProductCategory categories={categories} setCategories={setCategories} />
 
             <br />      <br />
-            <BestSellers products={props.products} setProducts={props.setProducts} />
+            <Deals />
             <br />      <br />
             <hr />
             <Footer />

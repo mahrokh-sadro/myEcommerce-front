@@ -9,6 +9,7 @@ import ProductList from "../components/ProductList";
 
 import { MDBCard, MDBCardTitle, MDBCardText, MDBCardBody, MDBCardImage, MDBRow, MDBCol } from 'mdb-react-ui-kit';
 
+import Header from '../components/Header'
 
 
 
@@ -67,6 +68,7 @@ const ProductDescriptionPage = () => {
 
     return (
         <>
+            <Header />
             <MDBCard style={{ width: "70rem", margin: "auto auto auto auto" }} >
                 <MDBRow className='g-0 align-items-center'>
                     <MDBCol md='6' >

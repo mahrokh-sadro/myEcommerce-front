@@ -52,7 +52,7 @@ const BestSellers = props => {
         <>
             <Container>
                 <div className="clearfix mt-5 mb-2">
-                    <h4 className="float-left">best sellers</h4>
+                    <h4 className="float-left">Best Sellers</h4>
                     <Link className="float-right text-uppercase" to="/">
                         see all
         </Link>
@@ -85,13 +85,6 @@ const BestSellers = props => {
                     })}
                 </Slider>
             </Container>
-            {/* {props.products.map((product, index) => (
-
-                    <BestSellerCard key={index} id={product._id}
-                        title={product.name} image={product.photoURL} price={product.price} />
-
-                ))} */}
-
         </>
     )
 }
