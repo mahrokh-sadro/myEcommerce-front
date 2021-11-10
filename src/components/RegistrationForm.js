@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState, useEffect } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -28,23 +29,45 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-// const SignUp = () => {
-const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
-    console.log({
-        email: data.get('email'),
-        password: data.get('password'),
-    });
-}
-// }
+
+
 
 const RegistrationForm = () => {
 
+    const [formData, setFormData] = useState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        password: "",
+        confirmPassword: ""
 
+    });
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
 
+        fetch(`http://localhost:5000/customers`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(formData)
+        })
+            .then(response => response.json())
+            .then(json => {
+
+                alert(json.message);
+                setFormData({
+                    firstName: "",
+                    lastName: "",
+                    email: "",
+                    password: "",
+                    confirmPassword: ""
+                })
+
+            })
+            .catch(err => console.log(`Error ${err}`))
+    }
 
 
     return (
@@ -71,12 +94,16 @@ const RegistrationForm = () => {
                             <Grid item xs={12} sm={6}>
                                 <TextField
                                     autoComplete="given-name"
-                                    name="firstName"
+                                    name="firsttName"
                                     required
                                     fullWidth
                                     id="firstName"
                                     label="First Name"
                                     autoFocus
+                                    value={formData.firstName}
+                                    onChange={eventObj =>
+                                        setFormData({ ...formData, firstName: eventObj.target.value })
+                                    }
                                 />
                             </Grid>
                             <Grid item xs={12} sm={6}>
@@ -87,6 +114,11 @@ const RegistrationForm = () => {
                                     label="Last Name"
                                     name="lastName"
                                     autoComplete="family-name"
+                                    value={formData.lastName}
+                                    onChange={eventObj =>
+                                        setFormData({ ...formData, lastName: eventObj.target.value })
+                                    }
+
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -97,6 +129,10 @@ const RegistrationForm = () => {
                                     label="Email Address"
                                     name="email"
                                     autoComplete="email"
+                                    value={formData.email}
+                                    onChange={eventObj =>
+                                        setFormData({ ...formData, email: eventObj.target.value })
+                                    }
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -108,12 +144,24 @@ const RegistrationForm = () => {
                                     type="password"
                                     id="password"
                                     autoComplete="new-password"
+                                    value={formData.password}
+                                    onChange={eventObj =>
+                                        setFormData({ ...formData, password: eventObj.target.value })
+                                    }
                                 />
                             </Grid>
                             <Grid item xs={12}>
-                                <FormControlLabel
-                                    control={<Checkbox value="allowExtraEmails" color="primary" />}
-                                    label="I want to receive inspiration, marketing promotions and updates via email."
+                                <TextField
+                                    required
+                                    fullWidth
+                                    name="confirm-password"
+                                    label="Confirm Password"
+                                    type="password"
+                                    id="Confirmpassword"
+                                    value={formData.confirmPassword}
+                                    onChange={eventObj =>
+                                        setFormData({ ...formData, confirmPassword: eventObj.target.value })
+                                    }
                                 />
                             </Grid>
                         </Grid>

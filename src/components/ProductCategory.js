@@ -61,14 +61,14 @@ const ProductCategory = props => {
             <Container>
                 <div className="clearfix mt-5 mb-2">
                     <h4 className="float-left">categories</h4>
-                    <Link className="float-right text-uppercase" to="/">
+                    {/* <Link className="float-right text-uppercase" to="/">
                         see all
-        </Link>
+        </Link> */}
                 </div>
                 <Slider {...settings}>
                     {props.categories.map(function (category) {
 
-                        if (category === "bathroom") img = bathtub
+                        if (category === "bathtub") img = bathtub
                         else if (category === "electronics") img = electronics
                         else if (category === "accessories") img = accessories
                         else if (category === "jewelry") img = jewel

@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 
 import ProductListByCatItem from '../components/ProductListByCatItem'
 import useStyles from '../assets/css/ProductStyles'
-import Box from '@mui/material/Box';
 import Grid from '@material-ui/core/Grid';
 
 
