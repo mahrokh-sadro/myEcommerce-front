@@ -16,7 +16,7 @@ const ProductListingPage = props => {
     useEffect(() => {
         const fetchPosts = async () => {
             setLoading(true);
-            const res = await axios.get('http://localhost:5000/products');
+            const res = await axios.get(`${process.env.REACT_APP_BACKEND_API_DOMAIN}/products`);
             props.setProducts(res.data.data);
             setLoading(false);
         };

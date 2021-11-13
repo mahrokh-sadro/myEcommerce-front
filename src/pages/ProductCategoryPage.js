@@ -18,7 +18,7 @@ const ProductCategoryPage = () => {
 
     useEffect(() => {
         //communicate with the backend!
-        fetch(`http://localhost:5000/products?category=${cat}`)
+        fetch(`${process.env.REACT_APP_BACKEND_API_DOMAIN}/products?category=${cat}`)
             .then(response => response.json())
             .then(json => {
                 console.log(json.data);

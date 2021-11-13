@@ -51,7 +51,7 @@ const ProductDescriptionPage = () => {
     useEffect(() => {
 
         //communicate with the backend!
-        fetch(`http://localhost:5000/products/${id}`)
+        fetch(`${process.env.REACT_APP_BACKEND_API_DOMAIN}/products/${id}`)
             .then(response => response.json())
             .then(json => {
 
