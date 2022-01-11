@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -28,21 +29,55 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-
-const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
-    console.log({
-        email: data.get('email'),
-        password: data.get('password'),
-    });
-}
-
-
-
-
 const LoginForm = () => {
+
+   
+    const [formData, setFormData] = useState({
+    
+        email: "",
+        password: "",
+    });
+
+    // const handleSubmit = (event) => {
+    //     event.preventDefault();
+
+    //     fetch(`http://localhost:5000/customers`)
+    //         .then(response => response.json())
+    //         .then(json => {
+    //             alert(json.message);
+    //             setFormData({   
+    //                 email: "",
+    //                 password: "",
+         
+    //             })
+
+    //         })
+    //         .catch(err => console.log(`Error ${err}`))
+    // }
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        fetch(`http://localhost:5000/customers/login`)
+            .then(response => response.json())
+            .then(json => {
+                alert(json.message);
+                setFormData({   
+                    email: "",
+                    password: "",
+         
+                })
+
+            })
+            .catch(err => console.log(`Error ${err}`))
+    }
+
+
+
+
+
+
+
     return (
         <ThemeProvider theme={theme}>
             <Container component="main" maxWidth="xs">
@@ -71,6 +106,15 @@ const LoginForm = () => {
                             name="email"
                             autoComplete="email"
                             autoFocus
+
+
+
+                            value={formData.email}
+                            onChange={eventObj =>
+                                setFormData({ ...formData, email: eventObj.target.value })
+                            }
+
+
                         />
                         <TextField
                             margin="normal"
@@ -81,6 +125,13 @@ const LoginForm = () => {
                             type="password"
                             id="password"
                             autoComplete="current-password"
+
+
+                            value={formData.password}
+                            onChange={eventObj =>
+                                setFormData({ ...formData, password: eventObj.target.value })
+                            }
+
                         />
                         <FormControlLabel
                             control={<Checkbox value="remember" color="primary" />}

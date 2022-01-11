@@ -127,6 +127,15 @@ function Header(props) {
                 <IconButton>
                     <SearchIcon />
                 </IconButton>
+
+                <input type='search'
+        className='search'
+        placeholder={props.placeholder}
+        onChange = {props.handleChange}
+        />
+
+
+
                 <Link to="/registration">
                     <Button variant="outlined" size="small" style={{ "marginRight": "1rem" }}>
                         Sign up

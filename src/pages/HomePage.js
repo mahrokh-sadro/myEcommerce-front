@@ -5,7 +5,7 @@ import Hero from '../components/Hero'
 import ProductCategory from '../components/ProductCategory'
 import BestSellers from '../components/BestSellers'
 import Footer from '../components/Footer'
-import Featureds from '../components/Featureds'
+import Featured from '../components/Featured'
 import Deals from '../components/Deals'
 //can i have 2 use effect???
 
@@ -18,7 +18,7 @@ const HomePage = props => {
 
     useEffect(() => {
 
-        fetch(`${process.env.REACT_APP_BACKEND_API_DOMAIN}/products?isBestSeller=yes`)
+        fetch(`http://localhost:5000/products?isBestSeller=yes`)
             .then(response => response.json())
             .then(json => {
                 props.setProducts(json.data)
@@ -34,7 +34,7 @@ const HomePage = props => {
 
     useEffect(() => {
 
-        fetch(`${process.env.REACT_APP_BACKEND_API_DOMAIN}/products/categories`)
+        fetch(`http://localhost:5000/products/categories`)
             .then(response => response.json())
             .then(json => {
                 console.log(`useEffect`)
@@ -49,7 +49,7 @@ const HomePage = props => {
     }, []);
 
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_BACKEND_API_DOMAIN}/products?isFeatured=yes`)
+        fetch(`http://localhost:5000/products?isFeatured=yes`)
             .then(res => res.json())
             .then(json => {
                 console.log(`----------->${json.data.length}`)
@@ -68,7 +68,7 @@ const HomePage = props => {
             <Hero />
             <br />      <br />
 
-            <Featureds products={featuredProducts} setProducts={featuredProducts} />
+            <Featured products={featuredProducts} setProducts={featuredProducts} />
             <br />      <br />
             <BestSellers products={props.products} setProducts={props.setProducts} />
             <br />      <br />
