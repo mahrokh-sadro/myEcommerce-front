@@ -1,15 +1,16 @@
 // import React from 'react'
+import React from "react";
 
-import Header from '../components/Header'
-import RegistrationForm from "../components/RegistrationForm"
+import Header from "../components/Header";
+import RegistrationForm from "../components/RegistrationForm";
 
 const RegistrationPage = () => {
-    return (
-        <>
-            <Header />
-            <RegistrationForm />
-        </>
-    )
-}
+  return (
+    <>
+      <Header />
+      <RegistrationForm />
+    </>
+  );
+};
 
-export default RegistrationPage
+export default RegistrationPage;
