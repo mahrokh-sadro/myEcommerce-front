@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Checkbox from "./Checkbox";
+import { prices } from "./fixedPrices";
 
 const Filter = () => {
   const [myFilters, setMyFilters] = useState({
@@ -18,6 +19,15 @@ const Filter = () => {
       .catch((err) => console.log(err));
   }, []);
 
+  const handleFilters = (filters, filterBy) => {
+    // console.log("SHOP", filters, filterBy);
+    // const newFilters = { ...myFilters };
+    //     newFilters.filters[filterBy] = filters;
+    const newFilters = { ...myFilters };
+    newFilters.filters[filterBy] = filters;
+    setMyFilters(newFilters);
+  };
+
   return (
     <>
       <div className="row">
@@ -27,6 +37,7 @@ const Filter = () => {
             {/* {categories.map((cat) => cat)} */}
             <Checkbox
               categories={categories}
+              handleFilters={(filters) => handleFilters(filters, "category")}
               // handleFilters={(filters) => handleFilters(filters, "category")}
             />
           </ul>
@@ -43,7 +54,7 @@ const Filter = () => {
             <label className="form-check-label">ssssss</label>
           </div>*/}
         </div>
-
+        {/* {JSON.stringify(myFilters)} */}
         {/* <div className="col-8">
           <h2 className="mb-4">Products</h2>
           <div className="row">
