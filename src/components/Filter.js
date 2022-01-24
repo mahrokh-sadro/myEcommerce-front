@@ -79,7 +79,7 @@ const Filter = () => {
   return (
     <>
       <div className="row">
-        <div className="col-4">
+        <div className="col-2 mt-5">
           <h4>Filter by categories</h4>
           <ul>
             <Checkbox
@@ -98,19 +98,30 @@ const Filter = () => {
         </div>
 
         {/* {JSON.stringify(filteredResults)} */}
-        <div className="col-8">
+        <div className="col-10">
           {/* <h2 className="mb-4">Products</h2> */}
           <div className="row">
-            {filteredResults.map((product, i) => (
+            {/* {filteredResults.map((product, i) => (
               <div key={i} className="col-4 mb-3">
                 <Cardd product={product} />
               </div>
-            ))}
+            ))} */}
+            <div className={classes.content}>
+              <div className={classes.toolbar} />
+              <Grid container justify="left" spacing={4}>
+                {filteredResults.map((product) => (
+                  <Grid key={product._id} item xs={12} sm={6} md={6} lg={4}>
+                    <Cardd product={product} />
+                  </Grid>
+                ))}
+              </Grid>
+            </div>
           </div>
-          {/* <hr /> */}
-          {/* {loadMoreButton()} */}
         </div>
+        {/* <hr /> */}
+        {/* {loadMoreButton()} */}
       </div>
+      {/* </div> */}
     </>
   );
 };
