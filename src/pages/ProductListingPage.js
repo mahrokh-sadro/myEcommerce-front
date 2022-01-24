@@ -6,22 +6,23 @@ import axios from "axios";
 import ProductList from "../components/ProductList";
 import MyPagination from "../components/MyPagination";
 import Header from "../components/Header";
+import Filter from "../components/Filter";
 
 const ProductListingPage = (props) => {
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(12);
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      setLoading(true);
-      const res = await axios.get(`http://localhost:5000/products`);
-      props.setProducts(res.data.data);
-      setLoading(false);
-    };
+  // useEffect(() => {
+  //   const fetchPosts = async () => {
+  //     setLoading(true);
+  //     const res = await axios.get(`http://localhost:5000/products`);
+  //     props.setProducts(res.data.data);
+  //     setLoading(false);
+  //   };
 
-    fetchPosts();
-  }, []);
+  //   fetchPosts();
+  // }, []);
 
   // console.log(posts)
 
@@ -36,7 +37,8 @@ const ProductListingPage = (props) => {
   return (
     <div>
       <Header />
-      <ProductList posts={currentPosts} loading={loading} />
+      <Filter loading={loading} />
+      {/* <ProductList posts={currentPosts} loading={loading} /> */}
       <MyPagination
         postsPerPage={postsPerPage}
         totalPosts={props.products.length}
