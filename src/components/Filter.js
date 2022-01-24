@@ -3,7 +3,7 @@ import Checkbox from "./Checkbox";
 import Radiobox from "./Radiobox";
 import { prices } from "./fixedPrices";
 import { getFilteredProducts } from "./apiCore";
-import Cardd from "./Card";
+import Cardd from "./Cardd";
 import useStyles from "../assets/css/ProductStyles";
 import Grid from "@material-ui/core/Grid";
 const Filter = () => {
@@ -75,10 +75,36 @@ const Filter = () => {
     }
     return array;
   };
+
+  // const loadMore = () => {
+  //   let toSkip = skip + limit;
+  //   // console.log(newFilters);
+  //   getFilteredProducts(toSkip, limit, myFilters.filters).then((data) => {
+  //     if (data.error) {
+  //       setError(data.error);
+  //     } else {
+  //       setFilteredResults([...filteredResults, ...data.data]);
+  //       setSize(data.size);
+  //       setSkip(toSkip);
+  //     }
+  //   });
+  // };
+
+  // const loadMoreButton = () => {
+  //   return (
+  //     size > 0 &&
+  //     size >= limit && (
+  //       <button onClick={loadMore} className="btn btn-warning mb-5">
+  //         Load more
+  //       </button>
+  //     )
+  //   );
+  // };
+
   const classes = useStyles();
   return (
     <>
-      <div className="row">
+      <div className="row mr-1 ml-1">
         <div className="col-2 mt-5">
           <h4>Filter by categories</h4>
           <ul>
@@ -98,7 +124,7 @@ const Filter = () => {
         </div>
 
         {/* {JSON.stringify(filteredResults)} */}
-        <div className="col-10">
+        <div className="col-10 ">
           {/* <h2 className="mb-4">Products</h2> */}
           <div className="row">
             {/* {filteredResults.map((product, i) => (
@@ -118,8 +144,8 @@ const Filter = () => {
             </div>
           </div>
         </div>
-        {/* <hr /> */}
-        {/* {loadMoreButton()} */}
+        {/* <hr />
+        {loadMoreButton()} */}
       </div>
       {/* </div> */}
     </>
