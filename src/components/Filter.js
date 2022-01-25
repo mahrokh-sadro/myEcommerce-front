@@ -106,7 +106,7 @@ const Filter = () => {
     <>
       <div className="row mr-1 ml-1">
         <div className="col-2 mt-5">
-          <h4>Filter by categories</h4>
+          <h6>Filter by categories</h6>
           <ul>
             <Checkbox
               categories={categories}
@@ -114,7 +114,7 @@ const Filter = () => {
             />
           </ul>
 
-          <h4>Filter by price range</h4>
+          <h6>Filter by price range</h6>
           <div>
             <Radiobox
               prices={prices}

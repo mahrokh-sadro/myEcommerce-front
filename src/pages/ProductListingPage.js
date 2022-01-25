@@ -39,11 +39,11 @@ const ProductListingPage = (props) => {
       <Header />
       <Filter loading={loading} />
       {/* <ProductList posts={currentPosts} loading={loading} /> */}
-      <MyPagination
+      {/* <MyPagination
         postsPerPage={postsPerPage}
         totalPosts={props.products.length}
         paginate={paginate}
-      />
+      /> */}
     </div>
   );
 };

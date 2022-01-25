@@ -1,5 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, Redirect } from "react-router-dom";
+import { addItem } from "./cartHelpers";
 
 import {
   Card,
@@ -16,10 +17,26 @@ import useStyles from "../assets/css/ProductStyles";
 const Cardd = ({ product }) => {
   const classes = useStyles();
 
+  const [redirect, setRedirect] = useState(false);
+
+  const shouldRedirect = (redirect) => {
+    if (redirect) {
+      return <Redirect to="/cart" />;
+    }
+  };
+
+  const addToCart = () => {
+    console.log("added");
+    addItem(product, () => {
+      setRedirect(true);
+    });
+  };
+
   return (
     <>
-      <Link to={`/product/details/${product._id}`}>
-        <Card className={classes.root}>
+      <Card className={classes.root}>
+        <Link to={`/product/details/${product._id}`}>
+          {shouldRedirect(redirect)}
           <img
             src={product.photoURL}
             alt=""
@@ -47,13 +64,13 @@ const Cardd = ({ product }) => {
                     <AddShoppingCart />
                 </IconButton>
             </CardActions> */}
-          <CardActions disableSpacing className={classes.cardActions}>
-            <IconButton aria-label="Add to Cart">
-              <AddShoppingCart />
-            </IconButton>
-          </CardActions>
-        </Card>
-      </Link>
+        </Link>
+        <CardActions disableSpacing className={classes.cardActions}>
+          <IconButton aria-label="Add to Cart" onClick={addToCart}>
+            <AddShoppingCart />
+          </IconButton>
+        </CardActions>
+      </Card>
     </>
   );
   //   <div>{product.price}</div>;

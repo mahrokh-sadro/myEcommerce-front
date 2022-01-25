@@ -7,6 +7,7 @@ import ProductListingPage from "../pages/ProductListingPage";
 import ProductDescriptionPage from "../pages/ProductDescriptionPage";
 import LoginPage from "../pages/LoginPage";
 import ProductCategoryPage from "../pages/ProductCategoryPage";
+import CartPage from "../pages/CartPage";
 //css???
 
 //asynch
@@ -40,6 +41,10 @@ const App = () => {
 
         <Route exact path="/product/details/:id">
           <ProductDescriptionPage />
+        </Route>
+
+        <Route exact path="/cart">
+          <CartPage />
         </Route>
       </Switch>
     </Router>

@@ -1,3 +1,5 @@
+import queryString from "query-string";
+
 export const getFilteredProducts = (skip, limit, filters = {}) => {
   const data = {
     limit,
@@ -19,3 +21,15 @@ export const getFilteredProducts = (skip, limit, filters = {}) => {
       console.log(err);
     });
 };
+
+// export const listByCategory = (params) => {
+//   const query = queryString.stringify(params);
+//   console.log("query", query);
+//   return fetch(`${API}/products/search?${query}`, {
+//     method: "GET",
+//   })
+//     .then((response) => {
+//       return response.json();
+//     })
+//     .catch((err) => console.log(err));
+// };
