@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, Redirect } from "react-router-dom";
-import { addItem } from "./cartHelpers";
+import { addItem, updateItem } from "./cartHelpers";
+import CartPage from "../pages/CartPage";
+import MyContext from "../context/Context";
 
 import {
   Card,
@@ -18,7 +20,9 @@ const Cardd = ({ product }) => {
   const classes = useStyles();
 
   const [redirect, setRedirect] = useState(false);
-
+  // const [count, setCount] = useState(product.count);
+  const { count, setCount } = useContext(MyContext);
+  // setCount(product.count);
   const shouldRedirect = (redirect) => {
     if (redirect) {
       return <Redirect to="/cart" />;
@@ -31,6 +35,32 @@ const Cardd = ({ product }) => {
       setRedirect(true);
     });
   };
+
+  // const handleChange = (productId) => (event) => {
+  //   // setRun(!run); // run useEffect in parent Cart
+  //   setCount(event.target.value < 1 ? 1 : event.target.value);
+  //   if (event.target.value >= 1) {
+  //     updateItem(productId, event.target.value);
+  //   }
+  // };
+
+  // const showCartUpdateOptions = () => {
+  //   return (
+  //     <div>
+  //       <div className="input-group mb-3">
+  //         <div className="input-group-prepend">
+  //           <span className="input-group-text">Adjust Quantity</span>
+  //         </div>
+  //         <input
+  //           type="number"
+  //           className="form-control"
+  //           value={count}
+  //           onChange={handleChange(product._id)}
+  //         />
+  //       </div>
+  //     </div>
+  //   );
+  // };
 
   return (
     <>
@@ -70,6 +100,9 @@ const Cardd = ({ product }) => {
             <AddShoppingCart />
           </IconButton>
         </CardActions>
+        {/* { if(render){<CartPage />}} */}
+        {/* {render ? <CartPage abs="hi" /> : ""} */}
+        {/* {showCartUpdateOptions()} */}
       </Card>
     </>
   );

@@ -8,45 +8,49 @@ import ProductDescriptionPage from "../pages/ProductDescriptionPage";
 import LoginPage from "../pages/LoginPage";
 import ProductCategoryPage from "../pages/ProductCategoryPage";
 import CartPage from "../pages/CartPage";
+import MyContext from "../context/Context";
 //css???
 
 //asynch
 
 const App = () => {
   const [products, setProducts] = useState([{}]);
+  const [count, setCount] = useState(1);
 
   return (
     <Router>
-      <Switch>
-        <Route exact path="/">
-          <HomePage products={products} setProducts={setProducts} />
-        </Route>
+      <MyContext.Provider value={{ count, setCount }}>
+        <Switch>
+          <Route exact path="/">
+            <HomePage products={products} setProducts={setProducts} />
+          </Route>
 
-        <Route exact path="/products">
-          <ProductListingPage products={products} setProducts={setProducts} />
-          {/* <ProductListingPage /> */}
-        </Route>
+          <Route exact path="/products">
+            <ProductListingPage products={products} setProducts={setProducts} />
+            {/* <ProductListingPage /> */}
+          </Route>
 
-        <Route exact path="/registration">
-          <RegistrationPage />
-        </Route>
+          <Route exact path="/registration">
+            <RegistrationPage />
+          </Route>
 
-        <Route exact path="/login">
-          <LoginPage />
-        </Route>
+          <Route exact path="/login">
+            <LoginPage />
+          </Route>
 
-        <Route exact path="/b/:category">
-          <ProductCategoryPage />
-        </Route>
+          <Route exact path="/b/:category">
+            <ProductCategoryPage />
+          </Route>
 
-        <Route exact path="/product/details/:id">
-          <ProductDescriptionPage />
-        </Route>
+          <Route exact path="/product/details/:id">
+            <ProductDescriptionPage />
+          </Route>
 
-        <Route exact path="/cart">
-          <CartPage />
-        </Route>
-      </Switch>
+          <Route exact path="/cart">
+            <CartPage />
+          </Route>
+        </Switch>
+      </MyContext.Provider>
     </Router>
   );
 };

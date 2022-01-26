@@ -6,7 +6,11 @@ import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 import Typography from "@mui/material/Typography";
+import NotificationsIcon from "@material-ui/icons/Notifications";
+import Badge from "@material-ui/core/Badge";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import { itemTotal } from "./cartHelpers";
+
 const isActive = (path) => {
   if (window.location.pathname === path) {
     return { color: "red" };
@@ -17,6 +21,7 @@ const isActive = (path) => {
 console.log("window.location:" + window.location.pathname);
 
 function Header(props) {
+  const items = itemTotal();
   return (
     <React.Fragment>
       <Toolbar sx={{ borderBottom: 1, borderColor: "divider" }}>
@@ -34,9 +39,13 @@ function Header(props) {
         >
           <Link to="/">My Shop Cart</Link>
         </Typography>
-        {/* <IconButton>
-          <SearchIcon />
-        </IconButton> */}
+
+        <Link to="/cart">
+          <Badge badgeContent={items} color="secondary">
+            <ShoppingCartIcon />
+          </Badge>
+        </Link>
+
         {/* 
         <input
           type="search"
