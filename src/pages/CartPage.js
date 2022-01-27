@@ -3,6 +3,7 @@ import { getCart } from "../components/cartHelpers";
 import { Link, Redirect } from "react-router-dom";
 import { addItem, updateItem } from "../components/cartHelpers";
 import CartCard from "../components/CartCard";
+import Checkout from "../components/Checkout";
 
 const CartPage = () => {
   const [items, setItems] = useState([]);
@@ -92,6 +93,7 @@ const CartPage = () => {
           <h2 className="mb-4">Your cart summary</h2>
           <hr />
           {/* <Checkout products={items} setRun={setRun} run={run} /> */}
+          <Checkout products={items} />
         </div>
       </div>
     </div>

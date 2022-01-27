@@ -2,12 +2,14 @@ import React, { useContext } from "react";
 import { addItem, updateItem } from "../components/cartHelpers";
 
 import MyContext from "../context/Context";
+import Checkout from "./Checkout";
 
 const CartCard = ({ product }) => {
   const { count, setCount } = useContext(MyContext);
-  const value = product.count;
+  setCount(product.count);
 
   const handleChange = (productId) => (event) => {
+    // event.preventDefault();
     // setRun(!run); // run useEffect in parent Cart
     setCount(event.target.value < 1 ? 1 : event.target.value);
     if (event.target.value >= 1) {
@@ -48,9 +50,7 @@ const CartCard = ({ product }) => {
           <div className="card-body">
             <h5 className="card-title">{product.name}</h5>
             <p className="card-text">
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
+              This is a wider card with supporting text below as.
             </p>
             {/* <p class="card-text">
               <small class="text-muted">Last updated 3 mins ago</small>
