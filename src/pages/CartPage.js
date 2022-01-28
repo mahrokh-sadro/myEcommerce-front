@@ -4,6 +4,8 @@ import { Link, Redirect } from "react-router-dom";
 import { addItem, updateItem } from "../components/cartHelpers";
 import CartCard from "../components/CartCard";
 import Checkout from "../components/Checkout";
+import Header from "../components/Header"
+
 
 const CartPage = () => {
   const [items, setItems] = useState([]);
@@ -31,8 +33,8 @@ const CartPage = () => {
   const showItems = (items) => {
     return (
       <div>
-        <h2>Your cart has {`${items.length}`} items</h2>
-        <hr />
+        {/* <h2>Your cart has {`${items.length}`} items</h2> */}
+        {/* <hr /> */}
         {items.map((product, i) => (
           <CartCard
             key={i}
@@ -82,21 +84,23 @@ const CartPage = () => {
   // };
 
   return (
-    <div>
-      {" "}
-      <div className="row">
-        <div className="col-6">
-          {items.length > 0 ? showItems(items) : noItemsMessage()}
-        </div>
+    <>
+      <Header />
+      <div className="mt-5">
+        <div className="row">
+          <div className="col-lg-8 col-md-auto col-sm-12">
+            {items.length > 0 ? showItems(items) : noItemsMessage()}
+          </div>
 
-        <div className="col-6">
-          <h2 className="mb-4">Your cart summary</h2>
-          <hr />
-          {/* <Checkout products={items} setRun={setRun} run={run} /> */}
-          <Checkout products={items} />
+          <div className="col-lg-4 col-md-auto col-sm-12">
+            <h2 className="mb-4">Your cart summary</h2>
+            <hr />
+            {/* <Checkout products={items} setRun={setRun} run={run} /> */}
+            <Checkout products={items} />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
