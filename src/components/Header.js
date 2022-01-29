@@ -39,12 +39,12 @@ function Header(props) {
         >
           <Link to="/">My Shop Cart</Link>
         </Typography>
-
+        {/* 
         <Link to="/cart">
           <Badge badgeContent={items} color="secondary">
             <ShoppingCartIcon />
           </Badge>
-        </Link>
+        </Link> */}
 
         {/* 
         <input
@@ -67,6 +67,11 @@ function Header(props) {
           <Button variant="outlined" size="small">
             Log in
           </Button>
+        </Link>
+        <Link to="/cart">
+          <Badge badgeContent={items} color="secondary">
+            <ShoppingCartIcon />
+          </Badge>
         </Link>
       </Toolbar>
     </React.Fragment>
