@@ -36,6 +36,7 @@ const CartPage = () => {
         {/* <h2>Your cart has {`${items.length}`} items</h2> */}
         {/* <hr /> */}
         {items.map((product, i) => (
+             
           <CartCard
             key={i}
             product={product}
@@ -46,6 +47,7 @@ const CartPage = () => {
             // run={run}
             // showCartUpdateOptions={showCartUpdateOptions()}
           />
+       
         ))}
       </div>
     );
@@ -86,16 +88,15 @@ const CartPage = () => {
   return (
     <>
       <Header />
-      <div className="mt-5">
-        <div className="row">
-          <div className="col-lg-8 col-md-auto col-sm-12">
+      <div className="mt-5 ">
+        <div className="row m-auto">
+          {/* <div className="col-lg-8 col-md-auto col-sm-12 ml-5 "> */}
+          <div className="col-lg-8 col-md-auto col-sm-12 ml-2 ">
             {items.length > 0 ? showItems(items) : noItemsMessage()}
+            {/* sss */}
           </div>
 
-          <div className="col-lg-4 col-md-auto col-sm-12">
-            <h2 className="mb-4">Your cart summary</h2>
-            <hr />
-            {/* <Checkout products={items} setRun={setRun} run={run} /> */}
+          <div className="col-lg-3 col-md-auto col-sm-12 ">
             <Checkout products={items} />
           </div>
         </div>

@@ -214,7 +214,43 @@ const Checkout = ({ products }) => {
 
   return (
     <>
-      <h2>Total: ${getTotal()}</h2>
+      {/* <h2>Total: ${getTotal()}</h2> */}
+      {/* /////////////////////////////////////////////////////////////////// */}
+      {/* <div className="row "> */}
+      {/* <div className="col-4"> */}
+      {/* <div> */}
+      <div className="mr-n5">
+        <div className="card text-center">
+          <div className="card-body">
+            <Link to="" className="btn btn-primary btn-block ">
+              Go To Checkout
+            </Link>
+
+            <div class="d-flex justify-content-between">
+              <div>Items Price</div>
+              <div>${getTotal()}</div>
+            </div>
+
+            <div class="d-flex justify-content-between">
+              <div>Shipping</div>
+              <div>$20</div>
+            </div>
+
+            <div class="d-flex justify-content-between">
+              <div>Taxes</div>
+              <div>${getTotal() * 0.1}</div>
+            </div>
+            <hr />
+            <div class="bg-light d-flex justify-content-between">
+              <h5>Total:</h5>
+              <h5>${getTotal() * 1.1}</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* </div> */}
+      {/* </div> */}
+      {/* </div> */}
       {/* {showLoading(data.loading)} */}
       {/* {showSuccess(data.success)} */}
       {/* {showError(data.error)} */}
