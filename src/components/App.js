@@ -9,6 +9,7 @@ import LoginPage from "../pages/LoginPage";
 import ProductCategoryPage from "../pages/ProductCategoryPage";
 import CartPage from "../pages/CartPage";
 import MyContext from "../context/Context";
+import PaymentPage from "../pages/PaymentPage";
 //css???
 
 //asynch
@@ -48,6 +49,10 @@ const App = () => {
 
           <Route exact path="/cart">
             <CartPage />
+          </Route>
+
+          <Route exact path="/payment">
+            <PaymentPage />
           </Route>
         </Switch>
       </MyContext.Provider>

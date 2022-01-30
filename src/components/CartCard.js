@@ -38,9 +38,16 @@ const CartCard = ({ product }) => {
   const showCartUpdateOptions = () => {
     return (
       <form class="form-inline">
-        <div class="form-group mx-sm-3   mb-2">
+        {/* <div class="form-group mx-sm-3 mb-2 ">
           <input type="number" class="form-control " id="inputPassword2" />
-        </div>
+        </div> */}
+        <input
+          class="form-control text-center me-3"
+          id="inputQuantity"
+          type="number"
+          value={product.count}
+          style={{ width: "4rem" }}
+        />
         <div class="col-auto">
           <div class=" mb-2">
             <Link to="" class="form-check-label" for="autoSizingCheck">
@@ -55,7 +62,7 @@ const CartCard = ({ product }) => {
   return (
     <>
       {/* /////////////////////////////////////////////////////////// */}
-      <div class="card mb-3 ">
+      <div class="card mb-3 ml-4">
         <div className="row g-0">
           <div className="col-md-4">
             <img

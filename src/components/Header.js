@@ -11,13 +11,13 @@ import Badge from "@material-ui/core/Badge";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { itemTotal } from "./cartHelpers";
 
-const isActive = (path) => {
-  if (window.location.pathname === path) {
-    return { color: "red" };
-  } else {
-    return { color: "#ffffff" };
-  }
-};
+// const isActive = (path) => {
+//   if (window.location.pathname === path) {
+//     return { color: "red" };
+//   } else {
+//     return { color: "#ffffff" };
+//   }
+// };
 console.log("window.location:" + window.location.pathname);
 
 function Header(props) {
@@ -25,8 +25,10 @@ function Header(props) {
   return (
     <React.Fragment>
       <Toolbar sx={{ borderBottom: 1, borderColor: "divider" }}>
-        <Link to="/products" style={isActive("/products")}>
-          <Button size="small">Products Listing</Button>
+        <Link to="/products">
+          <Button variant="outlined" size="small">
+            Products Listing
+          </Button>
         </Link>
 
         <Typography

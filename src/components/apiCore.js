@@ -34,6 +34,23 @@ export const getFilteredProducts = (skip, limit, filters = {}) => {
 //     .catch((err) => console.log(err));
 // };
 
+export const signin = (user) => {
+  return fetch(`http://localhost:5000/auth/signin`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(user),
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
 export const getBraintreeClientToken = (userId, token) => {
   return fetch(`http://localhost:5000/braintree/getToken/${userId}`, {
     method: "GET",
