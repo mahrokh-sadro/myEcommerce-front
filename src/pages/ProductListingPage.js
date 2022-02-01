@@ -38,6 +38,7 @@ const ProductListingPage = (props) => {
     <div>
       <Header />
       <Filter loading={loading} />
+
       {/* <ProductList posts={currentPosts} loading={loading} /> */}
       {/* <MyPagination
         postsPerPage={postsPerPage}

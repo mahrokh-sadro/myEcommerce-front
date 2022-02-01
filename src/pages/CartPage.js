@@ -5,6 +5,7 @@ import { addItem, updateItem } from "../components/cartHelpers";
 import CartCard from "../components/CartCard";
 import Checkout from "../components/Checkout";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const CartPage = () => {
   const [items, setItems] = useState([]);
@@ -14,22 +15,6 @@ const CartPage = () => {
     setItems(getCart());
   }, [run]);
 
-  // const showItems = (items) => {
-  //   return (
-  //     <div>
-  //       <h2>Youe cart has {`${items.length}`} items</h2>
-  //       <hr />
-  //       {items.map((item, i) => (
-  //         <div>
-  //           <div>{item.name + " "}</div>
-  //           <div>{item.category + " "}</div>
-  //           <div> increment/decrement </div>
-  //           <div> </div>
-  //         </div>
-  //       ))}
-  //     </div>
-  //   );
-  // };
   const showItems = (items) => {
     return (
       <div>
@@ -57,32 +42,6 @@ const CartPage = () => {
     </h2>
   );
 
-  // const handleChange = (productId) => (event) => {
-  //   // setRun(!run); // run useEffect in parent Cart
-  //   setCount(event.target.value < 1 ? 1 : event.target.value);
-  //   if (event.target.value >= 1) {
-  //     updateItem(productId, event.target.value);
-  //   }
-  // };
-
-  // const showCartUpdateOptions = () => {
-  //   return (
-  //     <div>
-  //       <div className="input-group mb-3">
-  //         <div className="input-group-prepend">
-  //           <span className="input-group-text">Adjust Quantity</span>
-  //         </div>
-  //         <input
-  //           type="number"
-  //           className="form-control"
-  //           value={count}
-  //           onChange={handleChange(product._id)}
-  //         />
-  //       </div>
-  //     </div>
-  //   );
-  // };
-
   return (
     <>
       <Header />
@@ -99,8 +58,12 @@ const CartPage = () => {
           </div>
         </div>
       </div>
+      <hr />
+      <Footer />
     </>
   );
 };
 
 export default CartPage;
+
+

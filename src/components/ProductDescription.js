@@ -3,14 +3,6 @@ import React from "react";
 const ProductDescription = (props) => {
   return (
     <>
-      {/* <div>
-        {props.product.name}
-        <br />
-        {props.product.price} <br />
-        {props.product.description} <br />
-        {props.product.category} <br />
-        <img src={props.product.photoURL} alt="" /> <br />
-      </div> */}
       <div class="py-5">
         <div class="container px-4 px-lg-5 my-5">
           <div class="row gx-4 gx-lg-5 align-items-center">
@@ -28,7 +20,6 @@ const ProductDescription = (props) => {
                 <span class="text-decoration-line-through">
                   ${props.product.price}
                 </span>
-                {/* <span>$40.00</span> */}
               </div>
               <p class="lead">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -36,26 +27,26 @@ const ProductDescription = (props) => {
                 obcaecati excepturi alias magni, accusamus eius blanditiis
                 delectus ipsam minima ea iste laborum vero?
               </p>
-              <div class="d-flex">
+              {/* <div class="d-flex">
                 <input
                   class="form-control text-center me-3"
                   id="inputQuantity"
                   type="num"
                   value="1"
                   //   style={"max-width: 3rem"}
-                />
-                <button
+                /> */}
+              {/* <button
                   class="btn btn-outline-dark flex-shrink-0"
                   type="button"
                 >
                   <i class="bi-cart-fill me-1"></i>
                   Add to cart
-                </button>
-              </div>
+                </button> */}
             </div>
           </div>
         </div>
       </div>
+      {/* </div> */}
     </>
   );
 };
