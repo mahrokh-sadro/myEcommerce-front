@@ -96,7 +96,12 @@ const Cardd = ({ product }) => {
             </CardActions> */}
         </Link>
         <CardActions disableSpacing className={classes.cardActions}>
+          {/* <IconButton aria-label="Add to Cart" onClick={addToCart}> */}
           <IconButton aria-label="Add to Cart" onClick={addToCart}>
+            {/* onClick={() => {
+    alert('clicked');
+  }} */}
+
             <AddShoppingCart />
           </IconButton>
         </CardActions>

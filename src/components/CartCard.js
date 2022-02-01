@@ -3,54 +3,43 @@ import { addItem, updateItem } from "../components/cartHelpers";
 import { Link, Redirect } from "react-router-dom";
 import MyContext from "../context/Context";
 import Checkout from "./Checkout";
+import { removeItem } from "./cartHelpers";
 
-const CartCard = ({ product }) => {
+const CartCard = ({ product, setRun = (f) => f, run = undefined }) => {
   const { count, setCount } = useContext(MyContext);
   setCount(product.count);
 
   const handleChange = (productId) => (event) => {
     // event.preventDefault();
-    // setRun(!run); // run useEffect in parent Cart
+    setRun(!run); // run useEffect in parent Cart
     setCount(event.target.value < 1 ? 1 : event.target.value);
     if (event.target.value >= 1) {
       updateItem(productId, event.target.value);
     }
   };
 
-  // const showCartUpdateOptions = () => {
-  //   return (
-  //     <div>
-  //       <div className="input-group mb-3">
-  //         <div className="input-group-prepend">
-  //           <span className="input-group-text">Adjust Quantity</span>
-  //         </div>
-  //         <input
-  //           type="number"
-  //           className="form-control"
-  //           value={product.count}
-  //           onChange={handleChange(product._id)}
-  //         />
-  //       </div>
-  //     </div>
-  //   );
-  // };
-
   const showCartUpdateOptions = () => {
     return (
       <form class="form-inline">
-        {/* <div class="form-group mx-sm-3 mb-2 ">
-          <input type="number" class="form-control " id="inputPassword2" />
-        </div> */}
         <input
           class="form-control text-center me-3"
           id="inputQuantity"
           type="number"
           value={product.count}
           style={{ width: "4rem" }}
+          onChange={handleChange(product._id)}
         />
         <div class="col-auto">
           <div class=" mb-2">
-            <Link to="" class="form-check-label" for="autoSizingCheck">
+            <Link
+              to="#"
+              class="form-check-label"
+              for="autoSizingCheck"
+              onClick={() => {
+                removeItem(product._id);
+                setRun(!run); // run useEffect in parent Cart
+              }}
+            >
               Remove
             </Link>
           </div>

@@ -4,15 +4,15 @@ import { Link, Redirect } from "react-router-dom";
 import { addItem, updateItem } from "../components/cartHelpers";
 import CartCard from "../components/CartCard";
 import Checkout from "../components/Checkout";
-import Header from "../components/Header"
-
+import Header from "../components/Header";
 
 const CartPage = () => {
   const [items, setItems] = useState([]);
+  const [run, setRun] = useState(false);
 
   useEffect(() => {
     setItems(getCart());
-  }, []);
+  }, [run]);
 
   // const showItems = (items) => {
   //   return (
@@ -36,18 +36,16 @@ const CartPage = () => {
         {/* <h2>Your cart has {`${items.length}`} items</h2> */}
         {/* <hr /> */}
         {items.map((product, i) => (
-             
           <CartCard
             key={i}
             product={product}
             // showAddToCartButton={false}
             // cartUpdate={true}
             // showRemoveProductButton={true}
-            // setRun={setRun}
-            // run={run}
+            setRun={setRun}
+            run={run}
             // showCartUpdateOptions={showCartUpdateOptions()}
           />
-       
         ))}
       </div>
     );
