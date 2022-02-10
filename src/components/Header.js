@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link, Redirect, withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
@@ -10,6 +10,7 @@ import NotificationsIcon from "@material-ui/icons/Notifications";
 import Badge from "@material-ui/core/Badge";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { itemTotal } from "./cartHelpers";
+import { signout, isAuthenticated } from "./apiCore";
 
 console.log("window.location:" + window.location.pathname);
 
@@ -34,6 +35,40 @@ function Header(props) {
         >
           <Link to="/">Emart</Link>
         </Typography>
+        {!isAuthenticated() && (
+          <>
+            <Link to="/registration">
+              <Button
+                variant="outlined"
+                size="small"
+                style={{ marginRight: "1rem" }}
+              >
+                Sign up
+              </Button>
+            </Link>
+            <Link to="/login">
+              <Button
+                variant="outlined"
+                size="small"
+                style={{ marginRight: "1rem" }}
+              >
+                Log in
+              </Button>
+            </Link>
+          </>
+        )}
+        {isAuthenticated() && (
+          <Link to="/">
+            <Button
+              variant="outlined"
+              size="small"
+              style={{ marginRight: "1rem" }}
+              onClick={signout}
+            >
+              Logout
+            </Button>
+          </Link>
+        )}
         {/* 
         <Link to="/cart">
           <Badge badgeContent={items} color="secondary">
@@ -48,35 +83,6 @@ function Header(props) {
           placeholder={props.placeholder}
           onChange={props.handleChange}
         /> */}
-
-        <Link to="/registration">
-          <Button
-            variant="outlined"
-            size="small"
-            style={{ marginRight: "1rem" }}
-          >
-            Sign up
-          </Button>
-        </Link>
-        <Link to="/login">
-          <Button
-            variant="outlined"
-            size="small"
-            style={{ marginRight: "1rem" }}
-          >
-            Log in
-          </Button>
-        </Link>
-        <Link to="#!">
-          <Button
-            variant="outlined"
-            size="small"
-            style={{ marginRight: "1rem" }}
-            // onChange={logout}
-          >
-            Logout
-          </Button>
-        </Link>
         <Link to="/cart">
           <Badge badgeContent={items} color="secondary">
             <ShoppingCartIcon />

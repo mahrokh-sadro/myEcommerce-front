@@ -115,3 +115,13 @@ export const createOrder = (userId, token, createOrderData) => {
     })
     .catch((err) => console.log(err));
 };
+
+export const signout = (next) => {
+  if (typeof window !== "undefined") {
+    localStorage.removeItem("jwt");
+    next();
+    return fetch(`http://localhost:5000/auth/signout`)
+      .then((res) => console.log("signout", res))
+      .catch((err) => console.log(err));
+  }
+};

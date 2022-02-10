@@ -91,7 +91,7 @@ const LoginForm = () => {
         <h2>Loading...</h2>
       </div>
     );
-  /////////////////////////////////////////////////////////////
+
   const redirectUser = () => {
     if (redirectToReferrer) {
       if (user && user.role === 1) {
