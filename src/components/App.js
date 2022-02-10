@@ -10,6 +10,8 @@ import ProductCategoryPage from "../pages/ProductCategoryPage";
 import CartPage from "../pages/CartPage";
 import MyContext from "../context/Context";
 import PaymentPage from "../pages/PaymentPage";
+import Dashboard from "../user/UserDashboard";
+import AdminDashboard from "../user/AdminDashboard";
 
 const App = () => {
   const [products, setProducts] = useState([{}]);
@@ -49,6 +51,15 @@ const App = () => {
 
           <Route exact path="/payment">
             <PaymentPage />
+          </Route>
+          {/* <PrivateRoute path="/user/dashboard" exact component={Dashboard} /> */}
+
+          <Route exact path="/user/dashboard">
+            <Dashboard />
+          </Route>
+          {/* <AdminRoute path="/admin/dashboard" exact component={AdminDashboard} /> */}
+          <Route exact path="/admin/dashboard">
+            <AdminDashboard />
           </Route>
         </Switch>
       </MyContext.Provider>

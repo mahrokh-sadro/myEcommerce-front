@@ -67,6 +67,16 @@ function Header(props) {
             Log in
           </Button>
         </Link>
+        <Link to="#!">
+          <Button
+            variant="outlined"
+            size="small"
+            style={{ marginRight: "1rem" }}
+            // onChange={logout}
+          >
+            Logout
+          </Button>
+        </Link>
         <Link to="/cart">
           <Badge badgeContent={items} color="secondary">
             <ShoppingCartIcon />

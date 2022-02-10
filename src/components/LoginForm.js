@@ -65,12 +65,12 @@ const LoginForm = () => {
             ...values,
             redirectToReferrer: true,
           });
-          // alert(values);
-          console.log(values);
-          setValues({
-            email: "",
-            password: "",
-          });
+          // // alert(values);
+          // console.log(values);
+          // setValues({
+          //   email: "",
+          //   password: "",
+          // });
         });
       }
     });
@@ -92,21 +92,17 @@ const LoginForm = () => {
       </div>
     );
   /////////////////////////////////////////////////////////////
-  // const redirectUser = () => {
-  //   if (redirectToReferrer) {
-  //     if (user && user.role === 1) {
-  //       return <Redirect to="/admin/dashboard" />;
-  //     } else {
-  //       return <Redirect to="/user/dashboard" />;
-  //     }
-  //   }
-  //   if (isAuthenticated()) {
-  //     return <Redirect to="/" />;
-  //   }
-  // };
-
   const redirectUser = () => {
-    return <Redirect to="/products" />;
+    if (redirectToReferrer) {
+      if (user && user.role === 1) {
+        return <Redirect to="/admin/dashboard" />;
+      } else {
+        return <Redirect to="/user/dashboard" />;
+      }
+    }
+    if (isAuthenticated()) {
+      return <Redirect to="/" />;
+    }
   };
 
   return (
@@ -208,6 +204,7 @@ const LoginForm = () => {
       </ThemeProvider>
       {/* {signUpForm()} */}
       {/* {redirectUser()} */}
+      {/* <Redirect to="/" /> */}
     </>
   );
 };
