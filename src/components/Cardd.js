@@ -20,9 +20,8 @@ const Cardd = ({ product }) => {
   const classes = useStyles();
 
   const [redirect, setRedirect] = useState(false);
-  // const [count, setCount] = useState(product.count);
   const { count, setCount } = useContext(MyContext);
-  // setCount(product.count);
+
   const shouldRedirect = (redirect) => {
     if (redirect) {
       return <Redirect to="/cart" />;
@@ -35,32 +34,6 @@ const Cardd = ({ product }) => {
       setRedirect(true);
     });
   };
-
-  // const handleChange = (productId) => (event) => {
-  //   // setRun(!run); // run useEffect in parent Cart
-  //   setCount(event.target.value < 1 ? 1 : event.target.value);
-  //   if (event.target.value >= 1) {
-  //     updateItem(productId, event.target.value);
-  //   }
-  // };
-
-  // const showCartUpdateOptions = () => {
-  //   return (
-  //     <div>
-  //       <div className="input-group mb-3">
-  //         <div className="input-group-prepend">
-  //           <span className="input-group-text">Adjust Quantity</span>
-  //         </div>
-  //         <input
-  //           type="number"
-  //           className="form-control"
-  //           value={count}
-  //           onChange={handleChange(product._id)}
-  //         />
-  //       </div>
-  //     </div>
-  //   );
-  // };
 
   return (
     <>
@@ -89,29 +62,15 @@ const Cardd = ({ product }) => {
               component="p"
             />
           </CardContent>
-          {/* <CardActions disableSpacing className={classes.cardActions}>
-                <IconButton aria-label="Add to Cart" onClick={handleAddToCart}>
-                    <AddShoppingCart />
-                </IconButton>
-            </CardActions> */}
         </Link>
         <CardActions disableSpacing className={classes.cardActions}>
-          {/* <IconButton aria-label="Add to Cart" onClick={addToCart}> */}
           <IconButton aria-label="Add to Cart" onClick={addToCart}>
-            {/* onClick={() => {
-    alert('clicked');
-  }} */}
-
             <AddShoppingCart />
           </IconButton>
         </CardActions>
-        {/* { if(render){<CartPage />}} */}
-        {/* {render ? <CartPage abs="hi" /> : ""} */}
-        {/* {showCartUpdateOptions()} */}
       </Card>
     </>
   );
-  //   <div>{product.price}</div>;
 };
 
 export default Cardd;

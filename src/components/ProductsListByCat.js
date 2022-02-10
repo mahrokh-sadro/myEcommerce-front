@@ -32,7 +32,6 @@ const ProductCategoryPage = () => {
 
   return (
     <div>
-      <h1> {cat}</h1>
       <main className={classes.content}>
         <div className={classes.toolbar} />
         <Grid container justify="left" spacing={4}>

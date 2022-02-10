@@ -8,13 +8,14 @@ import Filter from "./Filter";
 
 const ProductList = ({ posts, loading }) => {
   const classes = useStyles();
-  // if (loading) {
-  //   return <h2>Loading...</h2>;
-  // }
+  if (loading) {
+    return <h2>Loading...</h2>;
+  }
 
   return (
     <div>
-      {/* <Filter /> */}
+      <Filter />
+
       <main className={classes.content}>
         <div className={classes.toolbar} />
         <Grid container justify="left" spacing={4}>

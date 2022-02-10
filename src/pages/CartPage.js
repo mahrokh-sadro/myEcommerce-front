@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getCart } from "../components/cartHelpers";
-import { Link, Redirect } from "react-router-dom";
-import { addItem, updateItem } from "../components/cartHelpers";
+import { Link } from "react-router-dom";
 import CartCard from "../components/CartCard";
 import Checkout from "../components/Checkout";
 import Header from "../components/Header";
@@ -18,19 +17,8 @@ const CartPage = () => {
   const showItems = (items) => {
     return (
       <div>
-        {/* <h2>Your cart has {`${items.length}`} items</h2> */}
-        {/* <hr /> */}
         {items.map((product, i) => (
-          <CartCard
-            key={i}
-            product={product}
-            // showAddToCartButton={false}
-            // cartUpdate={true}
-            // showRemoveProductButton={true}
-            setRun={setRun}
-            run={run}
-            // showCartUpdateOptions={showCartUpdateOptions()}
-          />
+          <CartCard key={i} product={product} setRun={setRun} run={run} />
         ))}
       </div>
     );
@@ -38,32 +26,33 @@ const CartPage = () => {
 
   const noItemsMessage = () => (
     <h2>
-      Your cart is empty. <br /> <Link to="/shop">Continue shopping</Link>
+      Your cart is empty. <br /> <Link to="/products">Continue shopping</Link>
     </h2>
   );
 
   return (
     <>
       <Header />
-      <div className="mt-5 ">
-        <div className="row m-auto">
-          {/* <div className="col-lg-8 col-md-auto col-sm-12 ml-5 "> */}
-          <div className="col-lg-8 col-md-auto col-sm-12 ml-2 ">
-            {items.length > 0 ? showItems(items) : noItemsMessage()}
-            {/* sss */}
-          </div>
 
-          <div className="col-lg-3 col-md-auto col-sm-12 ">
-            <Checkout products={items} />
+      <div class="card-body p-4" style={{ backgroundColor: "#C0C0C0" }}>
+        <div class="text-center">
+          <div className="mt-5 ">
+            <div className="row m-auto">
+              <div className="col-lg-8 col-md-auto col-sm-12 ml-2 ">
+                {items.length > 0 ? showItems(items) : noItemsMessage()}
+              </div>
+              <div className="col-lg-3 col-md-auto col-sm-12 ">
+                <Checkout products={items} />
+              </div>
+            </div>
           </div>
+          <br />
+          <div class="card-footer p-4 pt-0 border-top-0 bg-transparent"></div>
         </div>
       </div>
-      <hr />
       <Footer />
     </>
   );
 };
 
 export default CartPage;
-
-

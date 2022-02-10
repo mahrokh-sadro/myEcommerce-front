@@ -6,6 +6,7 @@ import { getFilteredProducts } from "./apiCore";
 import Cardd from "./Cardd";
 import useStyles from "../assets/css/ProductStyles";
 import Grid from "@material-ui/core/Grid";
+
 const Filter = () => {
   const [myFilters, setMyFilters] = useState({
     filters: { category: [], price: [] },
@@ -17,12 +18,12 @@ const Filter = () => {
   const [size, setSize] = useState(0);
   const [filteredResults, setFilteredResults] = useState([]);
   const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch(`http://localhost:5000/products/categories`)
       .then((res) => res.json())
       .then((json) => {
-        // console.log(json.data);
         setCategories(json.data);
       })
       .catch((err) => console.log(err));
@@ -32,14 +33,13 @@ const Filter = () => {
     fetch(`http://localhost:5000/products`)
       .then((res) => res.json())
       .then((json) => {
-        // console.log(json.data);
         setFilteredResults(json.data);
+        setLoading(false);
       })
       .catch((err) => console.log(err));
   }, []);
 
   const loadFilteredResults = (newFilters) => {
-    // console.log(newFilters);
     getFilteredProducts(skip, limit, newFilters).then((data) => {
       if (data.error) {
         setError(data.error);
@@ -52,7 +52,6 @@ const Filter = () => {
   };
 
   const handleFilters = (filters, filterBy) => {
-    // console.log("SHOP", filters, filterBy);
     const newFilters = { ...myFilters };
     newFilters.filters[filterBy] = filters;
 
@@ -102,6 +101,15 @@ const Filter = () => {
   // };
 
   const classes = useStyles();
+  if (loading) {
+    return (
+      <div class="text-center mt-5 ml-n5">
+        <div class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+    );
+  }
   return (
     <>
       <div className="row mr-1 ml-1">
@@ -123,15 +131,8 @@ const Filter = () => {
           </div>
         </div>
 
-        {/* {JSON.stringify(filteredResults)} */}
         <div className="col-10 ">
-          {/* <h2 className="mb-4">Products</h2> */}
           <div className="row">
-            {/* {filteredResults.map((product, i) => (
-              <div key={i} className="col-4 mb-3">
-                <Cardd product={product} />
-              </div>
-            ))} */}
             <div className={classes.content}>
               <div className={classes.toolbar} />
               <Grid container justify="left" spacing={4}>
@@ -144,10 +145,7 @@ const Filter = () => {
             </div>
           </div>
         </div>
-        {/* <hr />
-        {loadMoreButton()} */}
       </div>
-      {/* </div> */}
     </>
   );
 };

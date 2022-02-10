@@ -53,9 +53,9 @@ const BestSellers = (props) => {
       <Container>
         <div className="clearfix mt-5 mb-2">
           <h4 className="float-left">Best Sellers</h4>
-          <Link className="float-right text-uppercase" to="/">
+          {/* <Link className="float-right text-uppercase" to="/">
             see all
-          </Link>
+          </Link> */}
         </div>
         <Slider {...settings}>
           {props.products.map((product) => {

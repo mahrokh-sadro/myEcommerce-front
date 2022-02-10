@@ -9,7 +9,6 @@ import BestSellers from "../components/BestSellers";
 import Footer from "../components/Footer";
 import Featured from "../components/Featured";
 import Deals from "../components/Deals";
-import SearchBar from "../components/SearchBar";
 
 //can i have 2 use effect???
 
@@ -56,7 +55,6 @@ const HomePage = (props) => {
       <Header />
       <Hero />
       <br /> <br />
-      {/* <SearchBar /> */}
       <Featured products={featuredProducts} setProducts={featuredProducts} />
       <br /> <br />
       <BestSellers products={props.products} setProducts={props.setProducts} />

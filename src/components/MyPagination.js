@@ -1,28 +1,26 @@
+// import React from 'react';
 
+// const MyPagination = ({ postsPerPage, totalPosts, paginate }) => {
+//     const pageNumbers = [];
 
-import React from 'react';
+//     for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
+//         pageNumbers.push(i);
+//     }
 
-const MyPagination = ({ postsPerPage, totalPosts, paginate }) => {
-    const pageNumbers = [];
+//     return (
+//         <nav>
 
-    for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
-        pageNumbers.push(i);
-    }
-
-    return (
-        <nav>
-
-            <ul >
-                {pageNumbers.map(number => (
-                    <li
-                        key={number} >
-                        <a onClick={() => paginate(number)} href="#">
-                            {number}
-                        </a>
-                    </li>
-                ))}
-            </ul>
-        </nav>
-    );
-};
-export default MyPagination;
+//             <ul >
+//                 {pageNumbers.map(number => (
+//                     <li
+//                         key={number} >
+//                         <a onClick={() => paginate(number)} href="#">
+//                             {number}
+//                         </a>
+//                     </li>
+//                 ))}
+//             </ul>
+//         </nav>
+//     );
+// };
+// export default MyPagination;

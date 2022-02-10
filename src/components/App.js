@@ -10,9 +10,6 @@ import ProductCategoryPage from "../pages/ProductCategoryPage";
 import CartPage from "../pages/CartPage";
 import MyContext from "../context/Context";
 import PaymentPage from "../pages/PaymentPage";
-//css???
-
-//asynch
 
 const App = () => {
   const [products, setProducts] = useState([{}]);
@@ -28,7 +25,6 @@ const App = () => {
 
           <Route exact path="/products">
             <ProductListingPage products={products} setProducts={setProducts} />
-            {/* <ProductListingPage /> */}
           </Route>
 
           <Route exact path="/registration">

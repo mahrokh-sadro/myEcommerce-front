@@ -50,7 +50,6 @@ const CartCard = ({ product, setRun = (f) => f, run = undefined }) => {
 
   return (
     <>
-      {/* /////////////////////////////////////////////////////////// */}
       <div class="card mb-3 ml-4">
         <div className="row g-0">
           <div className="col-md-4">
@@ -58,7 +57,6 @@ const CartCard = ({ product, setRun = (f) => f, run = undefined }) => {
               src={product.photoURL}
               className="img-fluid rounded-start"
               alt="img"
-              // height="200"
             />
           </div>
 

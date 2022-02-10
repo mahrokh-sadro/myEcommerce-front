@@ -11,13 +11,6 @@ import Badge from "@material-ui/core/Badge";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { itemTotal } from "./cartHelpers";
 
-// const isActive = (path) => {
-//   if (window.location.pathname === path) {
-//     return { color: "red" };
-//   } else {
-//     return { color: "#ffffff" };
-//   }
-// };
 console.log("window.location:" + window.location.pathname);
 
 function Header(props) {
@@ -39,7 +32,7 @@ function Header(props) {
           noWrap
           sx={{ flex: 1 }}
         >
-          <Link to="/">My Shop Cart</Link>
+          <Link to="/">Emart</Link>
         </Typography>
         {/* 
         <Link to="/cart">
@@ -66,7 +59,11 @@ function Header(props) {
           </Button>
         </Link>
         <Link to="/login">
-          <Button variant="outlined" size="small">
+          <Button
+            variant="outlined"
+            size="small"
+            style={{ marginRight: "1rem" }}
+          >
             Log in
           </Button>
         </Link>

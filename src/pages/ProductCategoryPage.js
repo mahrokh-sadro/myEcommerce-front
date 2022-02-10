@@ -16,12 +16,9 @@ const ProductCategoryPage = () => {
   const [products, setProducts] = useState([{}]);
 
   useEffect(() => {
-    //communicate with the backend!
     fetch(`http://localhost:5000/products?category=${cat}`)
       .then((response) => response.json())
       .then((json) => {
-        console.log(json.data);
-        //We updated the data returned from the Backed with the resort state
         setProducts(json.data);
       })
       .catch((err) => {

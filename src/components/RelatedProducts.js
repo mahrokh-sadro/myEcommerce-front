@@ -1,11 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 const RelatedProducts = (props) => {
   return (
     <>
-      {/* <Link to={`/product/details/${props.product._id}`}> */}
-
       <div class="col mb-5">
         <div class="card h-100">
           {/* <!-- Product image--> */}
@@ -25,14 +22,7 @@ const RelatedProducts = (props) => {
             </div>
           </div>
           {/* <!-- Product actions--> */}
-          <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-            {/* <div class="text-center">
-              <a href={`/product/details/${props.product._id}`}>View options</a>
-              {/* <Link to={`/product/details/${props.product._id}`}>
-                cccccccccccccc
-              </Link> 
-            </div> */}
-          </div>
+          <div class="card-footer p-4 pt-0 border-top-0 bg-transparent"></div>
         </div>
       </div>
     </>

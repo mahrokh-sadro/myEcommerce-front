@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import {
-  getProducts,
   getBraintreeClientToken,
   processPayment,
   createOrder,
@@ -9,7 +8,7 @@ import {
 import { isAuthenticated } from "../components/apiCore";
 import { emptyCart } from "../components/cartHelpers";
 import Header from "../components/Header";
-import { Link } from "react-router-dom";
+
 import DropIn from "braintree-web-drop-in-react";
 
 const PaymentPage = () => {
@@ -36,15 +35,6 @@ const PaymentPage = () => {
       }
     });
   };
-  //   const showCheckout = () => {
-  //     return isAuthenticated() ? (
-  //       <div>{showDropIn()}</div>
-  //     ) : (
-  //       <Link to="/signin">
-  //         <button className="btn btn-primary">Sign in to checkout</button>
-  //       </Link>
-  //     );
-  //   };
 
   const showCheckout = () => {
     return <div>{showDropIn()}</div>;
@@ -56,7 +46,6 @@ const PaymentPage = () => {
 
   const showDropIn = () => (
     <div onBlur={() => setData({ ...data, error: "" })}>
-      {/* // {data.clientToken !== null && products.length > 0 ? ( */}
       <div>
         <div style={{ textAlign: "center" }}>
           <DropIn
@@ -85,31 +74,27 @@ const PaymentPage = () => {
     let getNonce = data.instance
       .requestPaymentMethod()
       .then((data) => {
-        // console.log(data);
         nonce = data.nonce;
 
         const paymentData = {
           paymentMethodNonce: nonce,
-          //   amount: getTotal(products),
         };
 
         processPayment(userId, token, paymentData)
           .then((response) => {
             console.log(response);
-            // empty cart
-            // create order
 
             const createOrderData = {
-              //   products: products,
+              // products: products,
+              product: "abs",
               transaction_id: response.transaction.id,
               amount: response.transaction.amount,
-              //   address: deliveryAddress,
+              // address: deliveryAddress,
             };
 
             createOrder(userId, token, createOrderData)
               .then((response) => {
                 emptyCart(() => {
-                  //   setRun(!run); // run useEffect in parent Cart
                   console.log("payment success and empty cart");
                   setData({
                     loading: false,
@@ -128,7 +113,6 @@ const PaymentPage = () => {
           });
       })
       .catch((error) => {
-        // console.log("dropin error: ", error);
         setData({ ...data, error: error.message });
       });
   };
@@ -148,6 +132,7 @@ const PaymentPage = () => {
   return (
     <>
       <Header />
+
       <div>{showCheckout()}</div>
       <div>{showError()}</div>
     </>
