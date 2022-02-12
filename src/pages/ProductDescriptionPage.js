@@ -166,7 +166,7 @@ const ProductDescriptionPage = () => {
 
   useEffect(() => {
     //communicate with the backend!
-    fetch(`http://localhost:5000/products/${id}`)
+    fetch(`https://eemart.herokuapp.com/products/${id}`)
       .then((response) => response.json())
       .then((json) => {
         //We updated the data returned from the Backed with the resort state
@@ -179,7 +179,7 @@ const ProductDescriptionPage = () => {
 
   useEffect(() => {
     //communicate with the backend!
-    fetch(`http://localhost:5000/products/related/${id}`)
+    fetch(`https://eemart.herokuapp.com/products/related/${id}`)
       .then((response) => response.json())
       .then((json) => {
         //We updated the data returned from the Backed with the resort state

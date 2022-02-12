@@ -17,7 +17,7 @@ const HomePage = (props) => {
   const [featuredProducts, setFeaturedProducts] = useState([{}]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/products?isBestSeller=yes`)
+    fetch(`https://eemart.herokuapp.com/products?isBestSeller=yes`)
       .then((response) => response.json())
       .then((json) => {
         props.setProducts(json.data);
@@ -29,7 +29,7 @@ const HomePage = (props) => {
   }, []);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/products/categories`)
+    fetch(`https://eemart.herokuapp.com/products/categories`)
       .then((response) => response.json())
       .then((json) => {
         console.log(`useEffect`);
@@ -41,7 +41,7 @@ const HomePage = (props) => {
   }, []);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/products?isFeatured=yes`)
+    fetch(`https://eemart.herokuapp.com/products?isFeatured=yes`)
       .then((res) => res.json())
       .then((json) => {
         console.log(`----------->${json.data.length}`);

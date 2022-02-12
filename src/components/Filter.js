@@ -21,7 +21,7 @@ const Filter = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/products/categories`)
+    fetch(`https://eemart.herokuapp.com/products/categories`)
       .then((res) => res.json())
       .then((json) => {
         setCategories(json.data);
@@ -30,7 +30,7 @@ const Filter = () => {
   }, []);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/products`)
+    fetch(`https://eemart.herokuapp.com/products`)
       .then((res) => res.json())
       .then((json) => {
         setFilteredResults(json.data);

@@ -13,7 +13,7 @@ const SearchBar = () => {
   const { categories, category, search, results, searched } = thedata;
 
   useEffect(() => {
-    fetch(`http://localhost:5000/products/categories`)
+    fetch(`https://eemart.herokuapp.com/products/categories`)
       .then((res) => res.json())
       .then((json) => {
         // console.log("json.data---->" + json.data);
@@ -24,48 +24,39 @@ const SearchBar = () => {
       .catch((err) => console.log(err));
   }, []);
 
+  const searchData = () => {
+    // console.log(search, category);
+    if (search) {
+      // setTheData({ ...thedata, results: response, searched: true });
+      //http://localhost:5000/products?category=furniture
 
-const searchData=()=>{
- // console.log(search, category);
- if (search) {
-  // setTheData({ ...thedata, results: response, searched: true });
-//http://localhost:5000/products?category=furniture
+      fetch(`https://eemart.herokuapp.com/products?category=${search}`)
+        .then((res) => {
+          res.json();
+          console.log(search);
+          // console.log( res.data)
+        })
+        .then((json) => {
+          console.log(json);
+        })
+        .catch((err) => console.log(err));
+    }
+  };
 
-fetch(`http://localhost:5000/products?category=${search}`)
-.then(res=>{
-    res.json()
-    console.log( search)
-    // console.log( res.data)
-})
-.then(json=>{
-    
-    console.log(json)
-
-
-})
-.catch(err=>console.log(err))
-
-            
- }
-    
-
-}
-
-
-const searchSubmit=e=>{
+  const searchSubmit = (e) => {
     e.preventDefault();
     searchData();
-}
+  };
 
-const handleChange=name=>event=>{
-    setTheData({...thedata,[name]:event.target.value, searched:false})
-}
+  const handleChange = (name) => (event) => {
+    setTheData({ ...thedata, [name]: event.target.value, searched: false });
+  };
 
   return (
     <div className="row">
       {/* <div className="container mb-3">searchForm()</div> */}
       {/* <div className="container-fluid mb-3">searchedProducts(results)</div> */}
-     {/*  <div>{JSON.stringify(categories)}</div> */}
+      {/*  <div>{JSON.stringify(categories)}</div> */}
     </div>
   );
 };

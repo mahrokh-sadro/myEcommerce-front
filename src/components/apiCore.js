@@ -128,7 +128,7 @@ export const signout = (next) => {
 };
 
 export const getPurchaseHistory = (userId, token) => {
-  return fetch(`http://localhost:5000/orders/by/user/${userId}`, {
+  return fetch(`https://eemart.herokuapp.com/orders/by/user/${userId}`, {
     method: "GET",
     headers: {
       Accept: "application/json",

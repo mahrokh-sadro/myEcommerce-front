@@ -46,7 +46,7 @@ const RegistrationForm = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    fetch(`http://localhost:5000/auth/signup`, {
+    fetch(`https://eemart.herokuapp.com/auth/signup`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
