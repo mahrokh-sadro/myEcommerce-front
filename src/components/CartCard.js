@@ -20,20 +20,20 @@ const CartCard = ({ product, setRun = (f) => f, run = undefined }) => {
 
   const showCartUpdateOptions = () => {
     return (
-      <form class="form-inline">
+      <form className="form-inline">
         <input
-          class="form-control text-center me-3"
+          className="form-control text-center me-3"
           id="inputQuantity"
           type="number"
           value={product.count}
           style={{ width: "4rem" }}
           onChange={handleChange(product._id)}
         />
-        <div class="col-auto">
-          <div class=" mb-2">
+        <div className="col-auto">
+          <div className=" mb-2">
             <Link
               to="#"
-              class="form-check-label"
+              className="form-check-label"
               for="autoSizingCheck"
               onClick={() => {
                 removeItem(product._id);
