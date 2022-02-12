@@ -47,7 +47,7 @@ const CartPage = () => {
             </div>
           </div>
           <br />
-          <div class="card-footer p-4 pt-0 border-top-0 bg-transparent"></div>
+          <div className="card-footer p-4 pt-0 border-top-0 bg-transparent"></div>
         </div>
       </div>
       <Footer />
