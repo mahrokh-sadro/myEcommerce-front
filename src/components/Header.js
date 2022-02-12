@@ -35,9 +35,31 @@ function Header(props) {
         >
           <Link to="/">Emart</Link>
         </Typography>
+        {isAuthenticated() && isAuthenticated().user.role === 0 && (
+          <Link to="/user/dashboard">
+            <Button
+              variant="outlined"
+              size="small"
+              style={{ marginRight: "1rem" }}
+            >
+              Dashboard
+            </Button>
+          </Link>
+        )}
+        {isAuthenticated() && isAuthenticated().user.role === 1 && (
+          <Link to="/admin/dashboard">
+            <Button
+              variant="outlined"
+              size="small"
+              style={{ marginRight: "1rem" }}
+            >
+              Dashboard
+            </Button>
+          </Link>
+        )}
         {!isAuthenticated() && (
           <>
-            <Link to="/registration">
+            <Link to="/registr">
               <Button
                 variant="outlined"
                 size="small"
@@ -46,7 +68,7 @@ function Header(props) {
                 Sign up
               </Button>
             </Link>
-            <Link to="/login">
+            <Link to="/signin">
               <Button
                 variant="outlined"
                 size="small"

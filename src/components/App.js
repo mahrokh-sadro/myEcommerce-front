@@ -12,6 +12,9 @@ import MyContext from "../context/Context";
 import PaymentPage from "../pages/PaymentPage";
 import Dashboard from "../user/UserDashboard";
 import AdminDashboard from "../user/AdminDashboard";
+import AdminRoute from "../auth/AdminRoute";
+import PrivateRoute from "../auth/PrivateRoute";
+import Profile from "../user/Profile";
 
 const App = () => {
   const [products, setProducts] = useState([{}]);
@@ -29,11 +32,11 @@ const App = () => {
             <ProductListingPage products={products} setProducts={setProducts} />
           </Route>
 
-          <Route exact path="/registration">
+          <Route exact path="/registr">
             <RegistrationPage />
           </Route>
 
-          <Route exact path="/login">
+          <Route exact path="/signin">
             <LoginPage />
           </Route>
 
@@ -52,15 +55,15 @@ const App = () => {
           <Route exact path="/payment">
             <PaymentPage />
           </Route>
-          {/* <PrivateRoute path="/user/dashboard" exact component={Dashboard} /> */}
+          <PrivateRoute path="/user/dashboard" exact component={Dashboard} />
 
-          <Route exact path="/user/dashboard">
-            <Dashboard />
-          </Route>
-          {/* <AdminRoute path="/admin/dashboard" exact component={AdminDashboard} /> */}
-          <Route exact path="/admin/dashboard">
-            <AdminDashboard />
-          </Route>
+          <AdminRoute
+            path="/admin/dashboard"
+            exact
+            component={AdminDashboard}
+          />
+
+          <PrivateRoute path="/profile/:userId" exact component={Profile} />
         </Switch>
       </MyContext.Provider>
     </Router>

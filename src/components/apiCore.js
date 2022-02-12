@@ -1,4 +1,5 @@
 import queryString from "query-string";
+// import { errorHandler } from "../../../backend/helpers/dbErrorHandler";
 
 export const getFilteredProducts = (skip, limit, filters = {}) => {
   const data = {
@@ -124,4 +125,17 @@ export const signout = (next) => {
       .then((res) => console.log("signout", res))
       .catch((err) => console.log(err));
   }
+};
+
+export const getPurchaseHistory = (userId, token) => {
+  return fetch(`http://localhost:5000/orders/by/user/${userId}`, {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  })
+    .then((res) => res.json())
+    .catch((err) => console.log(err));
 };

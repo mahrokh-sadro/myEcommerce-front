@@ -6,7 +6,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import Link from "@mui/material/Link";
+// import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
@@ -14,7 +14,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 
 import { signin, authenticate, isAuthenticated } from "./apiCore";
 function Copyright(props) {
@@ -173,15 +173,17 @@ const LoginForm = () => {
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
               />
-              <Button
-                onClick={clickSubmit}
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-              >
-                Sign In
-              </Button>
+              <Link to="/products">
+                <Button
+                  onClick={clickSubmit}
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  sx={{ mt: 3, mb: 2 }}
+                >
+                  Sign In
+                </Button>
+              </Link>
               {/* <button onClick={clickSubmit} className="btn btn-primary">
                 Submit
               </button> */}
@@ -203,7 +205,7 @@ const LoginForm = () => {
         </Container>
       </ThemeProvider>
       {/* {signUpForm()} */}
-      {/* {redirectUser()} */}
+      {redirectUser()}
       {/* <Redirect to="/" /> */}
     </>
   );
