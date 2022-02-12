@@ -18,7 +18,7 @@ const ProductList = ({ posts, loading }) => {
 
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        <Grid container justifyContent="left" spacing={4}>
+        <Grid container justify="left" spacing={4}>
           {posts.map((post) => (
             <Grid key={post._id} item xs={12} sm={6} md={4} lg={3}>
               <ProductListItem product={post} />
