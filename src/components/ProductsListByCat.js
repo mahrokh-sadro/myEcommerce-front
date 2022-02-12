@@ -34,7 +34,7 @@ const ProductCategoryPage = () => {
     <div>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        <Grid container justify="left" spacing={4}>
+        <Grid container justifyContent="left" spacing={4}>
           {products.map((product) => (
             <Grid key={product._id} item xs={12} sm={6} md={4} lg={3}>
               <ProductListByCatItem product={product} />

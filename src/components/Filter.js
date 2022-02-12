@@ -135,7 +135,7 @@ const Filter = () => {
           <div className="row">
             <div className={classes.content}>
               <div className={classes.toolbar} />
-              <Grid container justify="left" spacing={4}>
+              <Grid container justifyContent="left" spacing={4}>
                 {filteredResults.map((product) => (
                   <Grid key={product._id} item xs={12} sm={6} md={6} lg={4}>
                     <Cardd product={product} />
