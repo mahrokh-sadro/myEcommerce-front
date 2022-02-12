@@ -136,6 +136,10 @@ export const getPurchaseHistory = (userId, token) => {
       Authorization: `Bearer ${token}`,
     },
   })
-    .then((res) => res.json())
+    .then((res) => {
+      console.log("----------------------->" + res);
+      res.json();
+      console.log("----------------------->" + res);
+    })
     .catch((err) => console.log(err));
 };

@@ -55,6 +55,7 @@ const App = () => {
           <Route exact path="/payment">
             <PaymentPage />
           </Route>
+
           <PrivateRoute path="/user/dashboard" exact component={Dashboard} />
 
           <AdminRoute
