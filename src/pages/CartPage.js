@@ -34,8 +34,8 @@ const CartPage = () => {
     <>
       <Header />
 
-      <div class="card-body p-4" style={{ backgroundColor: "#C0C0C0" }}>
-        <div class="text-center">
+      <div className="card-body p-4" style={{ backgroundColor: "#C0C0C0" }}>
+        <div className="text-center">
           <div className="mt-5 ">
             <div className="row m-auto">
               <div className="col-lg-8 col-md-auto col-sm-12 ml-2 ">
