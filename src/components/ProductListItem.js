@@ -22,7 +22,7 @@ const ProductListItem = (props) => {
         <img
           src={props.product.photoURL}
           alt=""
-          style={{ maxHeight: "17rem", "object-fit": "cover" }}
+          style={{ maxHeight: "17rem", objectFit: "cover" }}
         />
 
         <CardContent>

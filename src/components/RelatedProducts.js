@@ -11,7 +11,7 @@ const RelatedProducts = (props) => {
             src={props.product.photoURL}
             alt="..."
             height="200rem"
-            object-fit="cover"
+            objectFit="cover"
           />
           {/* <!-- Product details--> */}
           <div className="card-body p-4">

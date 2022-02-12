@@ -23,7 +23,7 @@ const FeaturedCard = (props) => {
         <img
           src={props.image}
           alt={props.name}
-          style={{ maxHeight: "14rem", "object-fit": "cover" }}
+          style={{ maxHeight: "14rem", objectFit: "cover" }}
         />
       </a>
     </>

@@ -43,7 +43,7 @@ const Cardd = ({ product }) => {
           <img
             src={product.photoURL}
             alt="..."
-            style={{ maxHeight: "17rem", "object-fit": "cover" }}
+            style={{ maxHeight: "17rem", objectFit: "cover" }}
           />
 
           <CardContent>
