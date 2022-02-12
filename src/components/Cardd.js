@@ -42,8 +42,8 @@ const Cardd = ({ product }) => {
           {shouldRedirect(redirect)}
           <img
             src={product.photoURL}
-            alt=""
-            style={{ "max-height": "17rem", "object-fit": "cover" }}
+            alt="..."
+            style={{ maxHeight: "17rem", "object-fit": "cover" }}
           />
 
           <CardContent>
