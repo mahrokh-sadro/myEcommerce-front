@@ -50,9 +50,33 @@ const ProductDescriptionPage = () => {
         <div class="container px-4 px-lg-5 mt-5">
           <h2 class="fw-bolder mb-4">Related products</h2>
           <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-            {relatedProducts.map((e) => (
+            {relatedProducts?.map((e) => (
               <a href={`/product/details/${e._id}`}>
-                <RelatedProducts product={e} />
+                {/* <RelatedProducts product={e} /> */}
+                <>
+                  <div className="col mb-5">
+                    <div className="card h-100">
+                      {/* <!-- Product image--> */}
+                      <img
+                        className="card-img-top"
+                        src={e.photoURL}
+                        alt="..."
+                        height="200rem"
+                        objectFit="cover"
+                      />
+                      {/* <!-- Product details--> */}
+                      <div className="card-body p-4">
+                        <div className="text-center">
+                          {/* <!-- Product name--> */}
+                          <h5 className="fw-bolder">{e.name}</h5>
+                          {/* <!-- Product price--> */}${e.price}
+                        </div>
+                      </div>
+                      {/* <!-- Product actions--> */}
+                      <div className="card-footer p-4 pt-0 border-top-0 bg-transparent"></div>
+                    </div>
+                  </div>
+                </>
               </a>
             ))}
           </div>
