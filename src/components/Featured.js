@@ -50,9 +50,6 @@ const Featured = (props) => {
       <Container>
         <div className="clearfix mt-5 mb-2">
           <h4 className="float-left">Featured Products</h4>
-          {/* <Link className="float-right text-uppercase" to="/">
-                        see all
-        </Link> */}
         </div>
         <Slider {...settings}>
           {props.products.map(function (product) {

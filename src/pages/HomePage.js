@@ -10,8 +10,6 @@ import Footer from "../components/Footer";
 import Featured from "../components/Featured";
 import Deals from "../components/Deals";
 
-//can i have 2 use effect???
-
 const HomePage = (props) => {
   const [categories, setCategories] = useState([]);
   const [featuredProducts, setFeaturedProducts] = useState([{}]);
@@ -44,7 +42,6 @@ const HomePage = (props) => {
     fetch(`https://eemart.herokuapp.com/products?isFeatured=yes`)
       .then((res) => res.json())
       .then((json) => {
-        console.log(`----------->${json.data.length}`);
         setFeaturedProducts(json.data);
       })
       .catch((err) => `Error------>${err}`);

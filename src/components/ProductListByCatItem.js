@@ -1,26 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
-import {
-  Card,
-  CardMedia,
-  CardContent,
-  CardActions,
-  Typography,
-  IconButton,
-} from "@material-ui/core";
-import { AddShoppingCart } from "@material-ui/icons";
+import { Card, CardContent, Typography } from "@material-ui/core";
 
 import useStyles from "../assets/css/ProductStyles";
-
-////////////////////fix ahref
 
 const ProductListByCatItem = (props) => {
   const classes = useStyles();
   return (
     <div>
-      {/* {props.product.name}
-            {props.product.category} */}
       <a href={`/product/details/${props.product._id}`}>
         <Card className={classes.root}>
           <img
@@ -45,11 +32,6 @@ const ProductListByCatItem = (props) => {
               component="p"
             />
           </CardContent>
-          {/* <CardActions disableSpacing className={classes.cardActions}>
-            <IconButton aria-label="Add to Cart" onClick={handleAddToCart}>
-              <AddShoppingCart />
-            </IconButton>
-          </CardActions> */}
         </Card>
       </a>
     </div>

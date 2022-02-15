@@ -1,5 +1,3 @@
-// import { CardTravelTwoTone } from "@material-ui/icons";
-
 export const addItem = (item, next) => {
   let cart = [];
 

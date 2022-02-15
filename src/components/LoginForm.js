@@ -6,7 +6,6 @@ import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-// import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
@@ -65,12 +64,6 @@ const LoginForm = () => {
             ...values,
             redirectToReferrer: true,
           });
-          // // alert(values);
-          // console.log(values);
-          // setValues({
-          //   email: "",
-          //   password: "",
-          // });
         });
       }
     });
@@ -184,9 +177,7 @@ const LoginForm = () => {
                   Sign In
                 </Button>
               </Link>
-              {/* <button onClick={clickSubmit} className="btn btn-primary">
-                Submit
-              </button> */}
+
               <Grid container>
                 <Grid item xs>
                   <Link href="#" variant="body2">
@@ -204,9 +195,7 @@ const LoginForm = () => {
           <Copyright sx={{ mt: 8, mb: 4 }} />
         </Container>
       </ThemeProvider>
-      {/* {signUpForm()} */}
       {redirectUser()}
-      {/* <Redirect to="/" /> */}
     </>
   );
 };

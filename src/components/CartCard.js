@@ -1,8 +1,7 @@
 import React, { useContext } from "react";
-import { addItem, updateItem } from "../components/cartHelpers";
-import { Link, Redirect } from "react-router-dom";
+import { updateItem } from "../components/cartHelpers";
+import { Link } from "react-router-dom";
 import MyContext from "../context/Context";
-import Checkout from "./Checkout";
 import { removeItem } from "./cartHelpers";
 
 const CartCard = ({ product, setRun = (f) => f, run = undefined }) => {
@@ -10,8 +9,7 @@ const CartCard = ({ product, setRun = (f) => f, run = undefined }) => {
   setCount(product.count);
 
   const handleChange = (productId) => (event) => {
-    // event.preventDefault();
-    setRun(!run); // run useEffect in parent Cart
+    setRun(!run);
     setCount(event.target.value < 1 ? 1 : event.target.value);
     if (event.target.value >= 1) {
       updateItem(productId, event.target.value);
@@ -37,7 +35,7 @@ const CartCard = ({ product, setRun = (f) => f, run = undefined }) => {
               for="autoSizingCheck"
               onClick={() => {
                 removeItem(product._id);
-                setRun(!run); // run useEffect in parent Cart
+                setRun(!run);
               }}
             >
               Remove

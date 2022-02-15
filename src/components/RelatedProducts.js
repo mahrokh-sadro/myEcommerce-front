@@ -30,5 +30,3 @@ const RelatedProducts = (props) => {
 };
 
 export default RelatedProducts;
-
-//race shortcut

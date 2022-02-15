@@ -1,13 +1,10 @@
-import queryString from "query-string";
-// import { errorHandler } from "../../../backend/helpers/dbErrorHandler";
-
 export const getFilteredProducts = (skip, limit, filters = {}) => {
   const data = {
     limit,
     skip,
     filters,
   };
-  return fetch(`http://localhost:5000/products/by/search`, {
+  return fetch(`https://eemart.herokuapp.com/products/by/search`, {
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -23,20 +20,8 @@ export const getFilteredProducts = (skip, limit, filters = {}) => {
     });
 };
 
-// export const listByCategory = (params) => {
-//   const query = queryString.stringify(params);
-//   console.log("query", query);
-//   return fetch(`${API}/products/search?${query}`, {
-//     method: "GET",
-//   })
-//     .then((response) => {
-//       return response.json();
-//     })
-//     .catch((err) => console.log(err));
-// };
-
 export const signin = (user) => {
-  return fetch(`http://localhost:5000/auth/signin`, {
+  return fetch(`https://eemart.herokuapp.com/auth/signin`, {
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -53,7 +38,7 @@ export const signin = (user) => {
 };
 
 export const getBraintreeClientToken = (userId, token) => {
-  return fetch(`http://localhost:5000/braintree/getToken/${userId}`, {
+  return fetch(`https://eemart.herokuapp.com/braintree/getToken/${userId}`, {
     method: "GET",
     headers: {
       Accept: "application/json",
@@ -86,7 +71,7 @@ export const isAuthenticated = () => {
 };
 
 export const processPayment = (userId, token, paymentData) => {
-  return fetch(`http://localhost:5000/braintree/payment/${userId}`, {
+  return fetch(`https://eemart.herokuapp.com/braintree/payment/${userId}`, {
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -102,7 +87,7 @@ export const processPayment = (userId, token, paymentData) => {
 };
 
 export const createOrder = (userId, token, createOrderData) => {
-  return fetch(`http://localhost:5000/order/create/${userId}`, {
+  return fetch(`https://eemart.herokuapp.com/order/create/${userId}`, {
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -121,7 +106,7 @@ export const signout = (next) => {
   if (typeof window !== "undefined") {
     localStorage.removeItem("jwt");
     next();
-    return fetch(`http://localhost:5000/auth/signout`)
+    return fetch(`https://eemart.herokuapp.com/auth/signout`)
       .then((res) => console.log("signout", res))
       .catch((err) => console.log(err));
   }
@@ -137,9 +122,7 @@ export const getPurchaseHistory = (userId, token) => {
     },
   })
     .then((res) => {
-      console.log("----------------------->" + res);
       res.json();
-      console.log("----------------------->" + res);
     })
     .catch((err) => console.log(err));
 };

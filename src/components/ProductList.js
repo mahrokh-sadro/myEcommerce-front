@@ -2,7 +2,6 @@ import React from "react";
 
 import ProductListItem from "./ProductListItem";
 import useStyles from "../assets/css/ProductStyles";
-import Box from "@mui/material/Box";
 import Grid from "@material-ui/core/Grid";
 import Filter from "./Filter";
 

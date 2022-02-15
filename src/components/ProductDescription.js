@@ -30,7 +30,6 @@ const ProductDescription = (props) => (
         </div>
       </div>
     </div>
-    {/* </div> */}
   </>
 );
 

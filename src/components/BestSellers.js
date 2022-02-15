@@ -1,9 +1,6 @@
 import React from "react";
-import InfiniteCarousel from "react-leaf-carousel";
 
-import BestSellerCard from "../components/BestSellerCard";
-
-import { Container, Card, Row, Col } from "react-bootstrap";
+import { Container, Card, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -53,9 +50,6 @@ const BestSellers = (props) => {
       <Container>
         <div className="clearfix mt-5 mb-2">
           <h4 className="float-left">Best Sellers</h4>
-          {/* <Link className="float-right text-uppercase" to="/">
-            see all
-          </Link> */}
         </div>
         <Slider {...settings}>
           {props.products.map((product) => {

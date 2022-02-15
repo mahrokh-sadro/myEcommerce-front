@@ -22,7 +22,6 @@ const Hero = () => {
               style={{ maxHeight: "40rem", "object-fit": "cover" }}
             />
             <MDBCarouselCaption>
-              {/* <h5>First slide label</h5> */}
               <h1 className=" text-dark ">Love Deals? Look No Further.</h1>
             </MDBCarouselCaption>
           </Link>

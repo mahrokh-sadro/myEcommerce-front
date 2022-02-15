@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 
 import ProductsListByCat from "../components/ProductsListByCat";
 import Header from "../components/Header";
-import Grid from "@material-ui/core/Grid";
 
 const ProductCategoryPage = () => {
   const path = window.location.pathname;

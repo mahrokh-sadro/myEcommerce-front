@@ -13,7 +13,6 @@ const ProductListingPage = (props) => {
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = props.products.slice(indexOfFirstPost, indexOfLastPost);
 
-  // Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (

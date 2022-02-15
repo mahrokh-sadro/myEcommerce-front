@@ -1,12 +1,8 @@
 import * as React from "react";
-import { Link, Redirect, withRouter } from "react-router-dom";
-import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
-import IconButton from "@mui/material/IconButton";
-import SearchIcon from "@mui/icons-material/Search";
 import Typography from "@mui/material/Typography";
-import NotificationsIcon from "@material-ui/icons/Notifications";
 import Badge from "@material-ui/core/Badge";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { itemTotal } from "./cartHelpers";
@@ -91,20 +87,7 @@ function Header(props) {
             </Button>
           </Link>
         )}
-        {/* 
-        <Link to="/cart">
-          <Badge badgeContent={items} color="secondary">
-            <ShoppingCartIcon />
-          </Badge>
-        </Link> */}
 
-        {/* 
-        <input
-          type="search"
-          className="search"
-          placeholder={props.placeholder}
-          onChange={props.handleChange}
-        /> */}
         <Link to="/cart">
           <Badge badgeContent={items} color="secondary">
             <ShoppingCartIcon />
@@ -114,15 +97,5 @@ function Header(props) {
     </React.Fragment>
   );
 }
-
-// Header.propTypes = {
-//   sections: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       title: PropTypes.string.isRequired,
-//       url: PropTypes.string.isRequired,
-//     })
-//   ).isRequired,
-//   title: PropTypes.string.isRequired,
-// };
 
 export default Header;

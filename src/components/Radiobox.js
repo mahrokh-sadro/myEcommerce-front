@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 const Radiobox = ({ prices, handleFilters }) => {
   const [value, setValue] = useState(0);
@@ -11,7 +11,6 @@ const Radiobox = ({ prices, handleFilters }) => {
 
   return (
     <>
-      {/* {JSON.stringify(prices)} */}
       {prices.map((price, i) => (
         <div key={i}>
           <input

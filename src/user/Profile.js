@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import Layout from "../components/Layout";
 import { isAuthenticated } from "../components/apiCore";
 import { read, update, updateUser } from "./apiUser";

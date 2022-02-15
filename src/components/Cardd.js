@@ -1,12 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { Link, Redirect } from "react-router-dom";
-import { addItem, updateItem } from "./cartHelpers";
-import CartPage from "../pages/CartPage";
-import MyContext from "../context/Context";
+import { addItem } from "./cartHelpers";
 
 import {
   Card,
-  CardMedia,
   CardContent,
   CardActions,
   Typography,
@@ -20,7 +17,6 @@ const Cardd = ({ product }) => {
   const classes = useStyles();
 
   const [redirect, setRedirect] = useState(false);
-  const { count, setCount } = useContext(MyContext);
 
   const shouldRedirect = (redirect) => {
     if (redirect) {

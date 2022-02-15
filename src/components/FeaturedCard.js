@@ -18,7 +18,6 @@ import {
 const FeaturedCard = (props) => {
   return (
     <>
-      {/* <h5>{props.name}</h5> */}
       <a href={`/product/details/${props.id}`}>
         <img
           src={props.image}

@@ -41,11 +41,6 @@ const ProductListItem = (props) => {
             component="p"
           />
         </CardContent>
-        {/* <CardActions disableSpacing className={classes.cardActions}>
-                <IconButton aria-label="Add to Cart" onClick={handleAddToCart}>
-                    <AddShoppingCart />
-                </IconButton>
-            </CardActions> */}
       </Card>
     </Link>
   );
