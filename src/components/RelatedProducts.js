@@ -18,7 +18,7 @@ const RelatedProducts = ({ id }) => {
   return (
     <>
       {relatedProducts?.map((e) => (
-        <a href={`/product/details/${e._id}`}>
+        <Link to={`/product/details/${e._id}`}>
           <div className="col mb-5">
             <div className="card h-100">
               {/* <!-- Product image--> */}
@@ -41,7 +41,7 @@ const RelatedProducts = ({ id }) => {
               <div className="card-footer p-4 pt-0 border-top-0 bg-transparent"></div>
             </div>
           </div>
-        </a>
+        </Link>
       ))}
     </>
   );
