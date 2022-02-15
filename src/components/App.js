@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { HashRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import HomePage from "../pages/HomePage";
 import RegistrationPage from "../pages/RegistrationPage";
@@ -23,7 +23,7 @@ const App = () => {
   return (
     <Router>
       <MyContext.Provider value={{ count, setCount }}>
-        <Switch>
+        <Routes>
           <Route exact path="/">
             <HomePage products={products} setProducts={setProducts} />
           </Route>
@@ -36,25 +36,29 @@ const App = () => {
             <RegistrationPage />
           </Route>
 
-          <Route exact path="/signin">
-            <LoginPage />
-          </Route>
+          <Route exact path="/signin" element={<LoginPage />} />
+          {/* <LoginPage />
+          </Route> */}
 
-          <Route exact path="/b/:category">
-            <ProductCategoryPage />
-          </Route>
+          <Route exact path="/b/:category" element={<ProductCategoryPage />} />
+          {/* <ProductCategoryPage />
+          </Route> */}
 
-          <Route exact path="/product/details/:id">
-            <ProductDescriptionPage />
-          </Route>
+          <Route
+            exact
+            path="/product/details/:id"
+            element={<ProductDescriptionPage />}
+          />
+          {/* <ProductDescriptionPage />
+          </Route> */}
 
-          <Route exact path="/cart">
-            <CartPage />
-          </Route>
+          <Route exact path="/cart" element={<CartPage />} />
+          {/* <CartPage />
+          </Route> */}
 
-          <Route exact path="/payment">
-            <PaymentPage />
-          </Route>
+          <Route exact path="/payment" element={<PaymentPage />} />
+          {/* <PaymentPage />
+          </Route> */}
 
           <PrivateRoute path="/user/dashboard" exact component={Dashboard} />
 
@@ -65,7 +69,7 @@ const App = () => {
           />
 
           <PrivateRoute path="/profile/:userId" exact component={Profile} />
-        </Switch>
+        </Routes>
       </MyContext.Provider>
     </Router>
   );
