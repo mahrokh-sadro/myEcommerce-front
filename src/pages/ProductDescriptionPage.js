@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 import ProductDescription from "../components/ProductDescription";
 import RelatedProducts from "../components/RelatedProducts";
 
-const ProductDescriptionPage = () => {
+const ProductDescriptionPage = (props) => {
   const { id } = useParams();
 
   const [product, setProduct] = useState({
@@ -39,7 +39,7 @@ const ProductDescriptionPage = () => {
       .catch((err) => {
         console.log(`Error ${err}`);
       });
-  }, []);
+  }, [props]);
 
   return (
     <>
