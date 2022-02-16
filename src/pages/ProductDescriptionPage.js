@@ -7,6 +7,7 @@ import ProductDescription from "../components/ProductDescription";
 import RelatedProducts from "../components/RelatedProducts";
 import { read, listRelated } from "../components/apiCore";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const ProductDescriptionPage = () => {
   const { id } = useParams();
@@ -18,6 +19,7 @@ const ProductDescriptionPage = () => {
     category: "",
     photoURL: "",
   });
+  const { pathname } = useLocation();
 
   const [relatedProducts, setRelatedProduct] = useState([]);
   const [error, setError] = useState(false);
@@ -66,8 +68,9 @@ const ProductDescriptionPage = () => {
 
   useEffect(() => {
     // const productId = id;
+    window.scrollTo(0, 0);
     loadSingleProduct(id);
-  }, [id]);
+  }, [pathname]);
 
   return (
     <>
