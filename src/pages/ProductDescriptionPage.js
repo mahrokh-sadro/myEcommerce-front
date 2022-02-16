@@ -67,7 +67,6 @@ const ProductDescriptionPage = () => {
   };
 
   useEffect(() => {
-    // const productId = id;
     window.scrollTo(0, 0);
     loadSingleProduct(id);
   }, [pathname]);
