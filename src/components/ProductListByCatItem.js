@@ -8,7 +8,7 @@ const ProductListByCatItem = (props) => {
   const classes = useStyles();
   return (
     <div>
-      <link to={`/product/details/${props.product._id}`}>
+      <Link to={`/product/details/${props.product._id}`}>
         <Card className={classes.root}>
           <img
             src={props.product.photoURL}
@@ -33,7 +33,7 @@ const ProductListByCatItem = (props) => {
             />
           </CardContent>
         </Card>
-      </link>
+      </Link>
     </div>
   );
 };
