@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 import {
   MDBCarousel,
   MDBCarouselInner,
@@ -18,13 +18,13 @@ import {
 const FeaturedCard = (props) => {
   return (
     <>
-      <a href={`/product/details/${props.id}`}>
+      <Link to={`/product/details/${props.id}`}>
         <img
           src={props.image}
           alt={props.name}
           style={{ maxHeight: "14rem", objectFit: "cover" }}
         />
-      </a>
+      </Link>
     </>
   );
 };
