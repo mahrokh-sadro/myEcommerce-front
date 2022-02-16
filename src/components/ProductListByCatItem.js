@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 import { Card, CardContent, Typography } from "@material-ui/core";
 
 import useStyles from "../assets/css/ProductStyles";
@@ -8,7 +8,7 @@ const ProductListByCatItem = (props) => {
   const classes = useStyles();
   return (
     <div>
-      <a href={`/product/details/${props.product._id}`}>
+      <link to={`/product/details/${props.product._id}`}>
         <Card className={classes.root}>
           <img
             src={props.product.photoURL}
@@ -33,7 +33,7 @@ const ProductListByCatItem = (props) => {
             />
           </CardContent>
         </Card>
-      </a>
+      </link>
     </div>
   );
 };

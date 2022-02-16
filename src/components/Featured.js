@@ -14,7 +14,7 @@ const Featured = (props) => {
     slidesToScroll: 4,
     initialSlide: 0,
     autoplay: true,
-    speed: 2000,
+    speed: 4000,
     autoplaySpeed: 2000,
     cssEase: "linear",
     arrow: true,

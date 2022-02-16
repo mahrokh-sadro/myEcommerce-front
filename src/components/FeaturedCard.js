@@ -1,19 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {
-  MDBCarousel,
-  MDBCarouselInner,
-  MDBCarouselItem,
-  MDBContainer,
-  MDBRow,
-  MDBCol,
-  MDBCard,
-  MDBCardImage,
-  MDBCardBody,
-  MDBCardTitle,
-  MDBCardText,
-  MDBBtn,
-} from "mdbreact";
 
 const FeaturedCard = (props) => {
   return (
