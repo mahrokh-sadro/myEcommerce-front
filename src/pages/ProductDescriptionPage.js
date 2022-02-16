@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 import ProductDescription from "../components/ProductDescription";
 import RelatedProducts from "../components/RelatedProducts";
 import { read, listRelated } from "../components/apiCore";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const ProductDescriptionPage = () => {
   const { id } = useParams();
@@ -79,9 +79,9 @@ const ProductDescriptionPage = () => {
           <h2 class="fw-bolder mb-4">Related products</h2>
           <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
             {relatedProducts?.map((e) => (
-              <a href={`/product/details/${e._id}`}>
+              <Link to={`/product/details/${e._id}`}>
                 <RelatedProducts product={e} />
-              </a>
+              </Link>
             ))}
             {/* {JSON.stringify(relatedProducts)} */}
             {/* <RelatedProducts id={id} /> */}
