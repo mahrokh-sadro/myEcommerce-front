@@ -5,10 +5,12 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ProductDescription from "../components/ProductDescription";
 import RelatedProducts from "../components/RelatedProducts";
+import { read, listRelated } from "../components/apiCore";
+// import { Link } from "react-router-dom";
 
-const ProductDescriptionPage = (props) => {
+const ProductDescriptionPage = () => {
   const { id } = useParams();
-
+  console.log("id:" + id);
   const [product, setProduct] = useState({
     name: "",
     price: 0,
@@ -17,18 +19,19 @@ const ProductDescriptionPage = (props) => {
     photoURL: "",
   });
 
-  // const [relatedProducts, setRelatedProduct] = useState([]);
+  const [relatedProducts, setRelatedProduct] = useState([]);
+  const [error, setError] = useState(false);
 
-  useEffect(() => {
-    fetch(`https://eemart.herokuapp.com/products/${id}`)
-      .then((response) => response.json())
-      .then((json) => {
-        setProduct(json.data);
-      })
-      .catch((err) => {
-        console.log(`Error ${err}`);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch(`https://eemart.herokuapp.com/products/${id}`)
+  //     .then((response) => response.json())
+  //     .then((json) => {
+  //       setProduct(json.data);
+  //     })
+  //     .catch((err) => {
+  //       console.log(`Error ${err}`);
+  //     });
+  // }, []);
 
   // useEffect(() => {
   //   fetch(`https://eemart.herokuapp.com/products/related/${id}`)
@@ -39,7 +42,32 @@ const ProductDescriptionPage = (props) => {
   //     .catch((err) => {
   //       console.log(`Error ${err}`);
   //     });
-  // }, [props]);
+  // }, []);
+
+  const loadSingleProduct = (productId) => {
+    read(productId).then((data) => {
+      if (data.error) {
+        setError(data.error);
+      } else {
+        setProduct(data.data);
+        console.log("products:" + data.data._id);
+
+        listRelated(data.data._id).then((data) => {
+          if (data.error) {
+            setError(data.error);
+          } else {
+            setRelatedProduct(data.data);
+            console.log("relatedProducts:" + relatedProducts);
+          }
+        });
+      }
+    });
+  };
+
+  useEffect(() => {
+    // const productId = id;
+    loadSingleProduct(id);
+  }, [id]);
 
   return (
     <>
@@ -50,12 +78,13 @@ const ProductDescriptionPage = (props) => {
         <div class="container px-4 px-lg-5 mt-5">
           <h2 class="fw-bolder mb-4">Related products</h2>
           <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-            {/* {relatedProducts?.map((e) => (
+            {relatedProducts?.map((e) => (
               <a href={`/product/details/${e._id}`}>
                 <RelatedProducts product={e} />
               </a>
-            ))} */}
-            <RelatedProducts id={id} />
+            ))}
+            {/* {JSON.stringify(relatedProducts)} */}
+            {/* <RelatedProducts id={id} /> */}
           </div>
         </div>
       </section>

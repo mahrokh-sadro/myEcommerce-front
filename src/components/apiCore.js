@@ -126,3 +126,23 @@ export const getPurchaseHistory = (userId, token) => {
     })
     .catch((err) => console.log(err));
 };
+
+export const read = (productId) => {
+  return fetch(`https://eemart.herokuapp.com/products/${productId}`, {
+    method: "GET",
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};
+
+export const listRelated = (productId) => {
+  return fetch(`https://eemart.herokuapp.com/products/related/${productId}`, {
+    method: "GET",
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};
