@@ -73,10 +73,7 @@ const UserDashboard = () => {
         className="container-fluid mt-1"
       >
         <div className="row">
-          <div className="col-lg-9   col-sm-12">
-            {userInfo()}
-            {/* {purchaseHistory()} */}
-          </div>
+          <div className="col-lg-9   col-sm-12">{userInfo()}</div>
           <div className="col-lg-3   col-sm-12">{userLinks()}</div>
         </div>
       </Layout>
