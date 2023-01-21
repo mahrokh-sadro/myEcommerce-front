@@ -33,7 +33,6 @@ const CartPage = () => {
   return (
     <>
       <Header />
-
       <div className="card-body p-4" style={{ backgroundColor: "#C0C0C0" }}>
         <div className="text-center">
           <div className="mt-5 ">
