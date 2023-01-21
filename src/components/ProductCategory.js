@@ -69,18 +69,7 @@ const ProductCategory = (props) => {
                 <Link to={`/b/${category}`}>
                   <Col>
                     <Card className="shadow-none">
-                      <img
-                        variant="top"
-                        src={img}
-                        style={
-                          {
-                            // paddingTop: '81.25%',
-                            // borderRadius: '50%',
-                            // margin: '28px'
-                          }
-                        }
-                        alt=""
-                      />
+                      <img variant="top" src={img} style={{}} alt="" />
                     </Card>
                     <Card.Title className="mt-5 ml-5">{category}</Card.Title>
                   </Col>

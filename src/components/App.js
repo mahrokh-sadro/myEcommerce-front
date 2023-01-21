@@ -9,10 +9,7 @@ import LoginPage from "../pages/LoginPage";
 import ProductCategoryPage from "../pages/ProductCategoryPage";
 import CartPage from "../pages/CartPage";
 import MyContext from "../context/Context";
-import PaymentPage from "../pages/PaymentPage";
 import Dashboard from "../user/UserDashboard";
-import AdminDashboard from "../user/AdminDashboard";
-import AdminRoute from "../auth/AdminRoute";
 import PrivateRoute from "../auth/PrivateRoute";
 import Profile from "../user/Profile";
 
@@ -52,18 +49,7 @@ const App = () => {
             <CartPage />
           </Route>
 
-          <Route exact path="/payment">
-            <PaymentPage />
-          </Route>
-
           <PrivateRoute path="/user/dashboard" exact component={Dashboard} />
-
-          <AdminRoute
-            path="/admin/dashboard"
-            exact
-            component={AdminDashboard}
-          />
-
           <PrivateRoute path="/profile/:userId" exact component={Profile} />
         </Switch>
       </MyContext.Provider>

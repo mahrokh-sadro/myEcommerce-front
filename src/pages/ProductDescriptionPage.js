@@ -22,29 +22,7 @@ const ProductDescriptionPage = () => {
   const { pathname } = useLocation();
 
   const [relatedProducts, setRelatedProduct] = useState([]);
-  const [error, setError] = useState(false);
-
-  // useEffect(() => {
-  //   fetch(`https://eemart.herokuapp.com/products/${id}`)
-  //     .then((response) => response.json())
-  //     .then((json) => {
-  //       setProduct(json.data);
-  //     })
-  //     .catch((err) => {
-  //       console.log(`Error ${err}`);
-  //     });
-  // }, []);
-
-  // useEffect(() => {
-  //   fetch(`https://eemart.herokuapp.com/products/related/${id}`)
-  //     .then((response) => response.json())
-  //     .then((json) => {
-  //       setRelatedProduct(json.data);
-  //     })
-  //     .catch((err) => {
-  //       console.log(`Error ${err}`);
-  //     });
-  // }, []);
+  const [setError] = useState(false);
 
   const loadSingleProduct = (productId) => {
     read(productId).then((data) => {
@@ -85,8 +63,6 @@ const ProductDescriptionPage = () => {
                 <RelatedProducts product={e} />
               </Link>
             ))}
-            {/* {JSON.stringify(relatedProducts)} */}
-            {/* <RelatedProducts id={id} /> */}
           </div>
         </div>
       </section>

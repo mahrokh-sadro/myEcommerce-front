@@ -96,19 +96,7 @@ const Profile = ({ match }) => {
     </form>
   );
 
-  return (
-    <>
-      <Layout
-        title="Profile"
-        description="Update your profile"
-        className="container-fluid"
-      >
-        <h2 className="mb-4">Profile update</h2>
-        {profileUpdate(firstName, email, password)}
-        {redirectUser(success)}
-      </Layout>
-    </>
-  );
+  return <></>;
 };
 
 export default Profile;
