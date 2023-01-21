@@ -15,7 +15,7 @@ const ProductCategoryPage = () => {
   const [products, setProducts] = useState([{}]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/products?category=${cat}`)
+    fetch(`https://eemart.herokuapp.com/products?category=${cat}`)
       .then((response) => response.json())
       .then((json) => {
         setProducts(json.data);
