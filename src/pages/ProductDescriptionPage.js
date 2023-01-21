@@ -22,7 +22,7 @@ const ProductDescriptionPage = () => {
   const { pathname } = useLocation();
 
   const [relatedProducts, setRelatedProduct] = useState([]);
-  const [setError] = useState(false);
+  const [error, setError] = useState(false);
 
   const loadSingleProduct = (productId) => {
     read(productId).then((data) => {
