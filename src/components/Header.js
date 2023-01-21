@@ -8,8 +8,6 @@ import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { itemTotal } from "./cartHelpers";
 import { signout, isAuthenticated } from "./apiCore";
 
-console.log("window.location:" + window.location.pathname);
-
 function Header(props) {
   const items = itemTotal();
   return (
@@ -33,17 +31,6 @@ function Header(props) {
         </Typography>
         {isAuthenticated() && isAuthenticated().user.role === 0 && (
           <Link to="/user/dashboard">
-            <Button
-              variant="outlined"
-              size="small"
-              style={{ marginRight: "1rem" }}
-            >
-              Dashboard
-            </Button>
-          </Link>
-        )}
-        {isAuthenticated() && isAuthenticated().user.role === 1 && (
-          <Link to="/admin/dashboard">
             <Button
               variant="outlined"
               size="small"

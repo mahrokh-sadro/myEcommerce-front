@@ -6,7 +6,6 @@ import Header from "../components/Header";
 
 const ProductCategoryPage = () => {
   const path = window.location.pathname;
-  console.log(path);
   let arr = [];
   arr = path.split("/");
   console.log(arr[2]);
