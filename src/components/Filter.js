@@ -33,7 +33,7 @@ const Filter = () => {
     fetch(`https://eemart.herokuapp.com/products`)
       .then((res) => res.json())
       .then((json) => {
-        setFilteredResults(json.data);
+        setFilteredResults(json?.data);
         setLoading(false);
       })
       .catch((err) => console.log(err));
